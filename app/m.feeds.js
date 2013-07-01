@@ -31,6 +31,15 @@ m.prototype.feeds = [
 	   'bgColor' : '#666666',
 	   'textColor' : '#FFFFFF'
     }, 
+    
+    {
+       'feedName' : 'hubski',
+       'feedUrl' : 'http://hubski.com/rss?id=2',
+       'webUrl' : 'http://hubski.com/global?id=3',
+       'favIcon' : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACjklEQVR4nI2Tz2vUVxTFP+9933x/6GQwsZNgCaQSg7QLNSA0uBJNFGqoWFqoLrUFhaZL9R9wIepOdBcRpVCS4EJRg1gqQUhLq1JoN20JgUJ0EnAyozPzne9773bx1ZigC8/63sM995yjAC5PTkuatkCE94JSRFHMiS/3K3Vp8o68qNXfMaOoLC2hlKa8sQt5B3mx1IFx1gNgM0srbYIo4igmzVqc+f4YXjznxn9EK411Gc4LcZRgCgZnPTpNm3jv8M4yMjTI8a9HCQ14LxTCAlEU4cWTxAW+/WqUkaFBnGsDIOIxoNBKI+Lo7+sFoBAaTDvk5NmLiBfKPT3ExgDQ39fLg9/+WJFhXj8Frbl5/yECNFptArHs+HgL7TRj7uki+ITpmV9pNFp49FoC5zyttmOx1kBrRZamHD6wl4HNfQD8PTfP9Vs/UwkaVJdrmCAgVjmBFhHKHRHffLGfo4dGqFar7Pl0cGUZYGBzH6UkoFGvM3bkc44e2kez0XxzQVepyEe9H7JQWcQ5R/hK72porQFhU3cZgMxmOYEC/pxb4NkPN6hUl+ns7OL+7CN2bv8ErQMAnlWWeP4yJUrWcfHaJFoHlIolRAR1/uqUiPfYLGPD+hjB87yWnze0bSuZdfz+1z8Yo9lYWk8rs9SbGUEQECfJ6yc6vG1zcHgYgIm7D1iq1ZmemcV7YUPXBxSTiM927wLgytRtgmBdLi0PhOAF/p3/L0+ltWgPZ0+Nce70d3ibkWYOyGdEqTc2RlGMdw4xIfdmH/PTL08wYQQaFiqLeUy0opG2GZ+8Tds54ih5FR+NCUweClMwFAsdK8xhGHLhygRKKXq6yytlClc5ExiNgrV1NqbwloWrYW22ps7/AwEIHeTrVJFsAAAAAElFTkSuQmCC',
+       'bgColor' : '#00B5B1'
+    }, 
+    
 
     {
 	   'feedName' : 'EchoJS',

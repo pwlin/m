@@ -2,12 +2,12 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css' />
         <meta name="viewport" content="initial-scale=1.0" />
         <link rel="shortcut icon" href="./favicon.ico" />
-        <link rel="stylesheet" href="./reset.css" />
-        <link rel="stylesheet" href="./responsive.css" />
-        <link rel="stylesheet" href="./style.css" />
+        <link rel="stylesheet" type='text/css' href="./fonts.css" />
+        <link rel="stylesheet" type='text/css' href="./reset.css" />
+        <link rel="stylesheet" type='text/css' href="./responsive.css" />
+        <link rel="stylesheet" type='text/css' href="./style.css" />
         <script type="text/javascript" src="./funcs.js"></script>
         <script type="text/javascript" src="./parseFeedCallback.js"></script>
         <script type="text/javascript" src="./showPageCallback.js"></script>
@@ -22,23 +22,14 @@
                 <span class="logo">M</span>
                 <span class="logo-text">Reader</span>
             </a>
-            
             <a class="about-link" href="?page=about">About</a>
-            
             <a class="feeds-link" href="#" onclick="MReader.toggleFeedsLink();return false;">Feeds</a>
-            
-            
         </header>  
         
-        <section id="sidebar">
-            &nbsp;           
-        </section>
+        <section id="sidebar">&nbsp;</section>
         
-        <article id="maincolumn">
-            &nbsp;
-        </article>
+        <article id="maincolumn">&nbsp;</article>
            
-    <script>var MReader = new m({'parseFeedCallback' : 'parseFeedCallback', 'showPageCallback' : 'showPageCallback'});MReader.run();</script>    
+        <script>var MReader = new m({'parseFeedCallback' : 'parseFeedCallback', 'showPageCallback' : 'showPageCallback'});MReader.run();</script>    
     </body>
-     
 </html>

@@ -8,7 +8,11 @@ function parseFeedCallback(feedKey, response) {
     var entries = response['feed']['entries'];
     for (var i = 0, k = entries.length; i < k ; i++) {
         var entry = handleExtraContent(feed, entries[i]);
-        content += '<li><a style="color:' + textColor + ';" href="' + entry['link'] + '">&#187; ' + entry['title'] + '</a> ' + entry['extraContent'] + '</li>';
+        content += '<li><a style="color:' + textColor + ';" href="' + entry['link'] + '">&#187; ' + entry['title'];
+        if (entry['domain_name'] != '') {
+            content += '<span class="domainName">' + entry['domain_name'] + '</span>';
+        }; 
+        content += '</a><span class="extraContent">' + entry['extraContent'] + '</span></li>';
     };
     content += '</ul>';
     $('article#maincolumn').innerHTML = content;
@@ -19,14 +23,15 @@ function parseFeedCallback(feedKey, response) {
 
 function handleExtraContent(feed, entry) {
     entry['extraContent'] = '';
+    entry['domain_name'] = '';
     var isMobileUser = navigator.userAgent.match(/Android|iPhone/i) ? true : false;
     switch(feed['feedName']) {
         case 'HN':
-            entry['extraContent'] = entry['content'].replace('<a', '<a style="margin-left:5px;color:#FFFFFF;font-size:smaller" ');
-            entry['extraContent'] = entry['extraContent'].replace('Comments', '[Comments]');
+            entry['extraContent'] = entry['content'];
             if (isMobileUser === true) {
                 entry['extraContent'] = entry['extraContent'].replace(/https:\/\/news\.ycombinator\.com\/item\?id=/, 'http://ihackernews.com/comments/');    
             };
+            entry['domain_name'] = (entry['link'].match(/:\/\/(.[^/]+)/)[1]).replace(/^www\./, '');
         break;
         
         case '/r/JavaScript':
@@ -39,5 +44,6 @@ function handleExtraContent(feed, entry) {
         break;
     
     };
+    
     return entry;
 };

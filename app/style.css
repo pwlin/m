@@ -95,3 +95,24 @@ article#maincolumn ul.items li {
 article#maincolumn ul.items li a{
     text-decoration: none;
 }
+
+article#maincolumn ul.items li a span.domainName {
+    font-weight: bold; 
+    margin-left: 5px;
+    font-size: smaller;
+    border: 1px solid #585143;
+    padding: 2px 4px;
+    display: inline-block;
+}
+
+article#maincolumn ul.items li span.extraContent a{
+    font-weight: bold; 
+    margin-left: 5px;
+    color: #484640;
+    display: inline-block;
+    background-color: #D6D1C9;
+    border: 1px solid #D6D1C9;
+    padding: 2px 4px;
+    font-size: smaller;
+}
+

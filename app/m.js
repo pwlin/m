@@ -1,7 +1,10 @@
 var m = function(params) {
     this.params = params || {}; 
-    this.apiUrl = 'http://ajax.googleapis.com/ajax/services/feed/load?v=1.0';
+    this.apiUrl = '//ajax.googleapis.com/ajax/services/feed/load?v=1.0';
     this.run = function() {
+        if (document.location.protocol == 'file:') {
+            this.apiUrl = 'https:' + this.apiUrl;
+        }
         window.addEventListener('resize', function() {
             if ($('section#sidebar').style.display == 'none') {
                 $('section#sidebar').removeAttribute('style');    

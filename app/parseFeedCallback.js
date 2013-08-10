@@ -10,7 +10,7 @@ function parseFeedCallback(feedKey, response) {
         var entry = handleExtraContent(feed, entries[i]);
         content += '<li><a style="color:' + textColor + ';" href="' + entry['link'] + '">&#187; ' + entry['title'];
         if (entry['domain_name'] != '') {
-            content += '<span class="domainName">' + entry['domain_name'] + '</span>';
+            content += '<span class="domainName">[' + entry['domain_name'] + ']</span>';
         }; 
         content += '</a><span class="extraContent">' + entry['extraContent'] + '</span></li>';
     };

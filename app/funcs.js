@@ -3,7 +3,7 @@ function $(q) {
     if (query.length == 1) {
         return query[0];
     } else {
-        return query;        
+        return query;
     }
 };
 

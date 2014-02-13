@@ -11,7 +11,7 @@ var m = function(params) {
             };
         }, false);
         this.sidebarFeeds();
-        
+
         var pageName = qs('page');
         if (pageName) {
             window[this.params['showPageCallback']](pageName);
@@ -24,7 +24,7 @@ var m = function(params) {
             this.getFeed(feedKey, this.apiUrl);    
         };
     };
-    
+
     this.sidebarFeeds = function() {
         var sidebarContent = '';
         sidebarContent += '<ul class="list-feeds">';
@@ -36,7 +36,7 @@ var m = function(params) {
         sidebarContent += '</ul>';
         $('section#sidebar').innerHTML = sidebarContent;
     };
-    
+
     this.getFeed = function(feedKey, apiUrl) {
         var feed = this.feeds[feedKey];
         var textColor = feed['textColor'] || '#000000';
@@ -50,7 +50,7 @@ var m = function(params) {
         $('article#maincolumn').innerHTML = '<ul class="items"><li style="color:' + textColor + ';">Loading ' + feed['feedName'] + ' ...</li></ul>';
         inc(apiUrl);
     };
-    
+
     this.toggleFeedsLink = function() {
         if ($('section#sidebar').style.display == 'inline') {
             $('section#sidebar').style.display = 'none';
@@ -58,5 +58,5 @@ var m = function(params) {
             $('section#sidebar').style.display = 'inline';
         };
     };
-    
+
 };

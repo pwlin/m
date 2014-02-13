@@ -113,7 +113,7 @@ m.prototype.feeds = [
     
     {
 	   'feedName' : '/r/ShutupAndTakeMyMoney',
-	   'feedUrl' : 'http://www.reddit.com/r/shutupandtakemymoney.rss',
+	   'feedUrl' : 'http://www.reddit.com/r/shutupandtakemymoney/.rss',
 	   'webUrl' : 'http://www.reddit.com/r/shutupandtakemymoney',
 	   'favIcon' : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACaklEQVR4nKWT3UsTYBSHH7e5Zpu5+cVGH6ZTE8QYQSIqyzIpJWgRYYYGoViZyPRCCyK6STOIoMg/ICLICd4EgVLYh0hJojE3sylZ2YxNNtzaZDrfLkaz/LiofnAuDuf3Ppz3PeeNsXmF4D8kA/DMB//psCYpLgLYSFKpjGDAz70bbSSlatHvyWby/SiSJT/arH2Un6wBQLIZIBxe5t3QAPEJao6ajmG32lnxzdF19zYjr/uivnUAmSyWrUoFAFMTVo4cr0K7I4/65quo0/Korm3g8ImaVf9awJzzK44P47i/Oxnoe8K2xFT8gSA5uXs5da4JmVzBcmgx6o951P9GPH38AE2KjphYBT/cM2Trd7M9NZkEtQaXy4Xj8xc+zXwjeWc2YmkRj8tJeeVZDPvzodHcKqYdk8JYXCg6O9qFL+AXKysr68IX8IvOjnZhLC4U045J0WhuFTavENKDpWXXhwZfUnn6DLV1dch7LGA0QnER7EqDwVdgMCDX6ym6cBG1JhGLxUKcchuGohIkupwCbPYJTCZT5FIqFWSkg1IZyZXKSK5SAWAymbDZJ9DlFETqNq8QTeaWDdveLJrMLWJwKiBsXiEkWxSCWbePsZHh6Mt2W3qwWq0sLCxgtVrptvREa2Mjw8y6fb+NUUDV+RbarrVxufkSJaVl6DPS6e3tJRwOI5VKqaioAGDgWT8379yn/krn6hhtXiE880HcLicPu26REh9L2aEDZGZmIpfLCYVCOBwO+p+/wOVborqhleQUHRD5C1HAL01/nGB89C0e1xzLoUVkcgWaFC25hnwysnL+WLooYO02/o1+AscvMnLhCOElAAAAAElFTkSuQmCC',
 	   'bgColor' : '#A4BD99'

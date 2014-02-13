@@ -39,7 +39,6 @@ header#top a.feeds-link {
     background-color: #E2E2E2;
     color: #666666;
     font-weight: bold;
-    
 }
 
 header#top a.about-link {
@@ -51,7 +50,6 @@ header#top a.about-link {
     background-color: #E2E2E2;
     color: #666666;
     font-weight: bold;
-    
 }
 
 section#sidebar ul.list-feeds {
@@ -75,7 +73,7 @@ section#sidebar ul.list-feeds li a {
     header#top a.feeds-link {
         display: inline-block;
     }
-    
+
     section#sidebar ul.list-feeds {
         margin: 6px;
     }
@@ -113,4 +111,3 @@ article#maincolumn ul.items li span.extraContent a{
     padding: 2px 4px;
     font-size: smaller;
 }
-

@@ -25,11 +25,11 @@ body:after {
         float: left;
         width: 100%;
     }
-    
+
     #maincolumn {
         display: inline;
-    }    
-    
+    }
+
     #sidebar {
         display: none;
     }

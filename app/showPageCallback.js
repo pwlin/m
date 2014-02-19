@@ -1,11 +1,3 @@
-function showPageCallback(pageName) {
-    switch(pageName) {
-        case 'about' : 
-            showAboutPage();
-        break;
-    };
-};
-
 function showAboutPage() {
     var content = '';
     content += '<ul class="items">';
@@ -13,4 +5,12 @@ function showAboutPage() {
     content += '<li>The complete source code of this app is <a href="https://github.com/pwlin/m">hosted on GitHub</a>.</li>';
     content += '</ul>';
     $('article#maincolumn').innerHTML = content;
-};
+}
+
+function showPageCallback(pageName) {
+    switch(pageName) {
+        case 'about' :
+            showAboutPage();
+        break;
+    }
+}

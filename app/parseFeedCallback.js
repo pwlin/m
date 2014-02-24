@@ -12,8 +12,12 @@ function handleExtraContent(feed, entry) {
             break;
 
         case 'DN':
-            entry['extraContent'] = '<a href="' + entry['link'].replace(/\/click/, '') + '">Comments</a>';
-            entry['link'] = entry['contentSnippet'];
+            if (entry['contentSnippet'].match(/^http/)) {
+                entry['extraContent'] = '<a href="' + entry['link'].replace(/\/click/, '') + '">Comments</a>';
+                entry['link'] = entry['contentSnippet'];
+            } else {
+                entry['link'] = entry['link'].replace(/\/click/, '');
+            }
             break;
 
         case '/r/JavaScript':

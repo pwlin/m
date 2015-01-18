@@ -7,7 +7,7 @@ function handleExtraContent(feed, entry) {
         entry['extraContent'] = entry['content'];
         entry['extraContent'] = entry['extraContent'].replace(/<a href/ig, '<a target="_blank" href');
         if (isMobileUser === true) {
-            entry['extraContent'] = entry['extraContent'].replace(/https:\/\/news\.ycombinator\.com\/item\?id=/, '" target="_blank" href="http://ihackernews.com/comments/');
+            entry['extraContent'] = entry['extraContent'].replace(/https:\/\/news\.ycombinator\.com\/item\?id=/, 'http://ihackernews.com/comments/');
         }
         entry['domain_name'] = (entry['link'].match(/:\/\/(.[^/]+)/)[1]).replace(/^www\./, '');
         break;

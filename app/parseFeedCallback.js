@@ -2,19 +2,19 @@ function handleExtraContent(feed, entry) {
     entry['extraContent'] = '';
     entry['domain_name'] = '';
     var isMobileUser = navigator.userAgent.match(/Android|iPhone/i) ? true : false;
-    console.log(entry['content']);
     switch (feed['feedName']) {
     case 'HN':
         entry['extraContent'] = entry['content'];
+        entry['extraContent'] = entry['extraContent'].replace(/<a href/ig, '<a target="_blank" href');
         if (isMobileUser === true) {
-            entry['extraContent'] = entry['extraContent'].replace(/https:\/\/news\.ycombinator\.com\/item\?id=/, 'http://ihackernews.com/comments/');
+            entry['extraContent'] = entry['extraContent'].replace(/https:\/\/news\.ycombinator\.com\/item\?id=/, '" target="_blank" href="http://ihackernews.com/comments/');
         }
         entry['domain_name'] = (entry['link'].match(/:\/\/(.[^/]+)/)[1]).replace(/^www\./, '');
         break;
 
     case 'DN':
         if (entry['contentSnippet'].match(/^http/)) {
-            entry['extraContent'] = '<a href="' + entry['link'].replace(/\/click/, '') + '">Comments</a>';
+            entry['extraContent'] = '<a target="_blank" href="' + entry['link'].replace(/\/click/, '') + '">Comments</a>';
             entry['link'] = entry['contentSnippet'];
         } else {
             entry['link'] = entry['link'].replace(/\/click/, '');

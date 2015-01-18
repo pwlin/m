@@ -2,32 +2,38 @@ function handleExtraContent(feed, entry) {
     entry['extraContent'] = '';
     entry['domain_name'] = '';
     var isMobileUser = navigator.userAgent.match(/Android|iPhone/i) ? true : false;
+    console.log(entry['content']);
     switch (feed['feedName']) {
-        case 'HN':
-            entry['extraContent'] = entry['content'];
-            if (isMobileUser === true) {
-                entry['extraContent'] = entry['extraContent'].replace(/https:\/\/news\.ycombinator\.com\/item\?id=/, 'http://ihackernews.com/comments/');
-            }
-            entry['domain_name'] = (entry['link'].match(/:\/\/(.[^/]+)/)[1]).replace(/^www\./, '');
-            break;
+    case 'HN':
+        entry['extraContent'] = entry['content'];
+        if (isMobileUser === true) {
+            entry['extraContent'] = entry['extraContent'].replace(/https:\/\/news\.ycombinator\.com\/item\?id=/, 'http://ihackernews.com/comments/');
+        }
+        entry['domain_name'] = (entry['link'].match(/:\/\/(.[^/]+)/)[1]).replace(/^www\./, '');
+        break;
 
-        case 'DN':
-            if (entry['contentSnippet'].match(/^http/)) {
-                entry['extraContent'] = '<a href="' + entry['link'].replace(/\/click/, '') + '">Comments</a>';
-                entry['link'] = entry['contentSnippet'];
-            } else {
-                entry['link'] = entry['link'].replace(/\/click/, '');
-            }
-            break;
+    case 'DN':
+        if (entry['contentSnippet'].match(/^http/)) {
+            entry['extraContent'] = '<a href="' + entry['link'].replace(/\/click/, '') + '">Comments</a>';
+            entry['link'] = entry['contentSnippet'];
+        } else {
+            entry['link'] = entry['link'].replace(/\/click/, '');
+        }
+        break;
 
-        case '/r/JavaScript':
-        case '/r/CSS':
-        case '/r/PHP':
-        case '/r/ShutupAndTakeMyMoney':
-            if (isMobileUser === true) {
-                entry['link'] = entry['link'].replace(/\/$/, '/.compact');
-            }
-            break;
+    case '/r/JavaScript':
+    case '/r/CSS':
+    case '/r/PHP':
+    case '/r/ShutupAndTakeMyMoney':
+        if (isMobileUser === true) {
+            entry['link'] = entry['link'].replace(/\/$/, '/.compact');
+        }
+        break;
+
+    case 'Liliputing':
+        entry['link'] = entry['content'].match(/<a rel="nofollow" href="([^"]*)">(.*)<\/a>/i)[1];
+        break;
+
     }
     return entry;
 }
@@ -42,7 +48,7 @@ function parseFeedCallback(feedKey, response) {
     var entries = response['feed']['entries'];
     for (var i = 0, k = entries.length; i < k; i++) {
         var entry = handleExtraContent(feed, entries[i]);
-        content += '<li><a style="color:' + textColor + ';" href="' + entry['link'] + '">&#187; ' + entry['title'];
+        content += '<li><a target="_blank" style="color:' + textColor + ';" href="' + entry['link'] + '">&#187; ' + entry['title'];
         if (entry['domain_name'] !== '') {
             content += '<span class="domainName">[' + entry['domain_name'] + ']</span>';
         }
@@ -54,4 +60,3 @@ function parseFeedCallback(feedKey, response) {
         $('article#maincolumn').style.height = ($('section#sidebar').offsetHeight) + 'px';
     }
 }
-

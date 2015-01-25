@@ -29,6 +29,15 @@ m.prototype.feeds = [
     },
 
     {
+        'feedName': 'FanlessTech',
+        'feedUrl': 'http://createfeed.fivefilters.org/extract.php?url=www.fanlesstech.com&in_id_or_class=post-title',
+        'webUrl': 'http://www.fanlesstech.com/',
+        'favIcon': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAC+UlEQVQozwXB70/aaAAA4Pctb0Ea/AEJyTYaPCaNF8xmnNzUjILoUaFXUZdlX/y//LLs6zo2pQyDhOgMqLveqblwzrDiRpQlkJhaEO02YNp3zwNfvnxxeHh4elrFGA//7hsdHd1+v6lpGmkysyzbN9Cby+W+t39QFBXjhIuLC/j8+bNWq0WSFpZlTchcKBR+dts2my02x5+dnR3+d4Axvke7IpHI33vyyckJurrS+/vtES5aLpePP/4PAHAPegJPnuwW8rVaDUDi0aOxkQe+dDrd1BokiZDH45mcnMwXduv1OgHhxMSEi3an0yld1y0WC8dFDcMQRbHb7ToG7IIgIJ/Pl0wmO50OZbVyc7FmsyklVzHGTqczFpsrFo+Ojo4wBENDQ9PB8NbWFoxGowAAmqZnZmb2PsiVSgUCY2Rk5PHkH5lM5vxcNZlMgUDA5XKtv0vruo4ghH6/f3iYSadTl5dXJELB0Kzd0f/6lfi9/YOibPH5RfXiPCG+NgzDbu+HKysr7XZ7e3vr5uamr29AEITTs6/yPx+Age+67gmCsFPYU8olAkCv1zs9HUSfK19KpRIA4DfP/T9nIvl8vlL5DAB4MPpwfHxckiRVVU0EGQqF7t65I4oJOBeLQggDgQBN05n1jevra5I0cRyHSEs2m+12Or29vfGFhXq9XsjnDcNAFEXxPN9qXr5NvDEMw24fmJ9fUBTl4OBfAAgXTfM8v7uzoyglAAiGYWDi7RtZlsufFIwxwzChUGhz8321WgXAGBsbG/c/liSpoakQwmBw2u12w+XlZU3TCAKxLOt205Ik6bpuNpsjkYjVal1fz3Q6HavVEo/HdV3P5XJI0zSbzRaPLzYaDVEUb29vHQ7H0tKSoigbGxsAEE6n8+nTxf39/WKxCABANE3zPC/L8vHxMcbY6/VyXDSbzVSrVQCAz+cLh8PvpGStVgMQ+P1+uLa2lkqlVFUlCGJqaophmNXV5Ldv1wRBzM6GBweHEomEftVCCMX+4nt6en4BJuplY/ry63MAAAAASUVORK5CYII=',
+        'bgColor': '#494949',
+        'textColor': '#FFFFFF'
+    },
+
+    {
         'feedName': 'hubski',
         'feedUrl': 'http://hubski.com/rss?id=2',
         'webUrl': 'http://hubski.com/global?id=3',

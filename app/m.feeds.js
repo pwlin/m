@@ -38,6 +38,14 @@ m.prototype.feeds = [
     },
 
     {
+		'feedName': 'WebAppers',
+        'feedUrl': 'http://feeds.feedburner.com/Webappers',
+        'webUrl': 'http://www.webappers.com/',
+        'favIcon': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAK8AAACvABQqw0mAAAACF0RVh0U29mdHdhcmUATWFjcm9tZWRpYSBGaXJld29ya3MgNC4w6iYndQAAAk5JREFUeJylk81PE1EUxX/vtdOZMtNOKWAjQvmOJmjAiBJ2JqyMS7cuXLnzT3BnNK5cuXJpTNxoXLswcYMGE5MajJEKxGKDTCm005Z+z3Mx7RDiTu/y3HvPPefe94RSSvEfEd5yK9S7CkuTTFpWkGh5bTZKOaQQXExMEBahIJd1KzS7ikFdI/z4y3c6CISCh0vzpKIGCsW9T8/I1RwAriRnebB4u9dc5VFmEwRMmDpyJm4C4KH4dVwHoNBwg2aAz0c/qHYaAGxXKiB8PG2ZyLQ1EBTmyy4Aa4Vvp3wqBZmjHV9BsRTgk9YActw8IdjY+w3Aq9zaX8t6s/sBgB2nEGCpqIFMRQ0AhBBk83mKzQoHTV8JwscBvpZ3qbYbZHtDAAYjEWQiovkyPY/tXJ63+UxQsJpaYN5O92woXm+tU3PL9C9vRzTClqahPI96rUr1qMjz7DvwObl57iqHTZeN0k8AXm69p3IQptVooBsGeiiE1KWkXqtSchzawsULewBIIZmLnWUhOR3Y8IwOjcYhbvGASKdFSAikFAL9uEq54KCPKHq1XEvOolAYUmMsOhzsSUt0KDsO8W7LHwQwiIfr7BNLn1zkxtgSdz8+5X7mBbfSKwFujuuUnH3SRuSEYC4RR4/BmdFhbNMmYSa4lJgkFo0RNyyWR85jmza2aTM6lQLq9M8fBlidv8C6yjJkxhAIlpMzREMRnizeQQiBRHA9dZnN6h4AoRWD5ekp31b/N5abNZqdNkLAUNRG9pfRi67yKB7772NA07Ei0dME/xp/AJiK37tmu2rFAAAAAElFTkSuQmCC',
+        'bgColor': '#48BD7F'
+    },
+	
+	{
         'feedName': 'hubski',
         'feedUrl': 'http://hubski.com/rss?id=2',
         'webUrl': 'http://hubski.com/global?id=3',

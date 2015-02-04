@@ -1,15 +1,15 @@
-﻿body {
+body {
     width: 100%;
     *zoom: 1;
 }
-body:before, body:after {
+body:before,
+body:after {
     content: "";
     display: table;
 }
 body:after {
     clear: both;
 }
-
 #maincolumn {
     display: inline;
     float: left;
@@ -21,18 +21,15 @@ body:after {
     width: 20%;
 }
 @media screen and (max-width: 720px) {
-    #maincolumn, #sidebar {
+    #maincolumn,
+    #sidebar {
         float: left;
         width: 100%;
     }
-
     #maincolumn {
         display: inline;
     }
-
     #sidebar {
         display: none;
     }
 }
-
-

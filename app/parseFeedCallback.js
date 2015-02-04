@@ -1,23 +1,26 @@
+/*jslint browser: true, devel: true, node: true, sloppy: true, plusplus: true, regexp: true*/
+/*global $, MReader*/
+
 function handleExtraContent(feed, entry) {
-    entry['extraContent'] = '';
-    entry['domain_name'] = '';
+    entry.extraContent = '';
+    entry.domain_name = '';
     var isMobileUser = navigator.userAgent.match(/Android|iPhone/i) ? true : false;
-    switch (feed['feedName']) {
+    switch (feed.feedName) {
     case 'HN':
-        entry['extraContent'] = entry['content'];
-        entry['extraContent'] = entry['extraContent'].replace(/<a href/ig, '<a target="_blank" href');
+        entry.extraContent = entry.content;
+        entry.extraContent = entry.extraContent.replace(/<a href/ig, '<a target="_blank" href');
         if (isMobileUser === true) {
-            entry['extraContent'] = entry['extraContent'].replace(/https:\/\/news\.ycombinator\.com\/item\?id=/, 'http://ihackernews.com/comments/');
+            entry.extraContent = entry.extraContent.replace(/https:\/\/news\.ycombinator\.com\/item\?id=/, 'http://ihackernews.com/comments/');
         }
-        entry['domain_name'] = (entry['link'].match(/:\/\/(.[^/]+)/)[1]).replace(/^www\./, '');
+        entry.domain_name = (entry.link.match(/:\/\/(.[^\/]+)/)[1]).replace(/^www\./, '');
         break;
 
     case 'DN':
-        if (entry['contentSnippet'].match(/^http/)) {
-            entry['extraContent'] = '<a target="_blank" href="' + entry['link'].replace(/\/click/, '') + '">Comments</a>';
-            entry['link'] = entry['contentSnippet'];
+        if (entry.contentSnippet.match(/^http/)) {
+            entry.extraContent = '<a target="_blank" href="' + entry.link.replace(/\/click/, '') + '">Comments</a>';
+            entry.link = entry.contentSnippet;
         } else {
-            entry['link'] = entry['link'].replace(/\/click/, '');
+            entry.link = entry.link.replace(/\/click/, '');
         }
         break;
 
@@ -26,12 +29,12 @@ function handleExtraContent(feed, entry) {
     case '/r/PHP':
     case '/r/ShutupAndTakeMyMoney':
         if (isMobileUser === true) {
-            entry['link'] = entry['link'].replace(/\/$/, '/.compact');
+            entry.link = entry.link.replace(/\/$/, '/.compact');
         }
         break;
 
     case 'Liliputing':
-        entry['link'] = entry['content'].match(/<a rel="nofollow" href="([^"]*)">(.*)<\/a>/i)[1];
+        entry.link = entry.content.match(/<a rel="nofollow" href="([^"]*)">(.*)<\/a>/i)[1];
         break;
 
     }
@@ -40,19 +43,21 @@ function handleExtraContent(feed, entry) {
 
 function parseFeedCallback(feedKey, response) {
     //console.log(response);
-    var feed = MReader.feeds[feedKey];
-    var textColor = feed['textColor'] || '#000000';
-    var content = '';
+    var feed = MReader.feeds[feedKey],
+        content = '',
+        entries = response.feed.entries,
+        i,
+        k,
+        entry;
     content += '<ul class="items">';
-    content += '<li style="color:' + textColor + ';">Latest Entries In ' + feed['feedName'] + ':</li>';
-    var entries = response['feed']['entries'];
-    for (var i = 0, k = entries.length; i < k; i++) {
-        var entry = handleExtraContent(feed, entries[i]);
-        content += '<li><a target="_blank" style="color:' + textColor + ';" href="' + entry['link'] + '">&#187; ' + entry['title'];
-        if (entry['domain_name'] !== '') {
-            content += '<span class="domainName">[' + entry['domain_name'] + ']</span>';
+    content += '<li>Latest Entries In ' + feed.feedName + ':</li>';
+    for (i = 0, k = entries.length; i < k; i++) {
+        entry = handleExtraContent(feed, entries[i]);
+        content += '<li><a target="_blank" href="' + entry.link + '">&#187; ' + entry.title;
+        if (entry.domain_name !== '') {
+            content += '<span class="domainName">[' + entry.domain_name + ']</span>';
         }
-        content += '</a><span class="extraContent">' + entry['extraContent'] + '</span></li>';
+        content += '</a><span class="extraContent">' + entry.extraContent + '</span></li>';
     }
     content += '</ul>';
     $('article#maincolumn').innerHTML = content;

@@ -1,35 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="initial-scale=1.0" />
-        <link rel="shortcut icon" href="./favicon.ico" />
-        <link rel="stylesheet" type='text/css' href="./fonts.css" />
-        <link rel="stylesheet" type='text/css' href="./reset.css" />
-        <link rel="stylesheet" type='text/css' href="./responsive.css" />
-        <link rel="stylesheet" type='text/css' href="./style.css" />
-        <script type="text/javascript" src="./funcs.js"></script>
-        <script type="text/javascript" src="./parseFeedCallback.js"></script>
-        <script type="text/javascript" src="./showPageCallback.js"></script>
-        <script type="text/javascript" src="./m.js"></script>
-        <script type="text/javascript" src="./m.feeds.js"></script>
-        <title>MReader</title>
-    </head>
 
-    <body>
-        <header id="top">
-            <a class="logo-container" href="?">
-                <span class="logo">M</span>
-                <span class="logo-text">Reader</span>
-            </a>
-            <a class="about-link" href="?page=about">About</a>
-            <a class="feeds-link" href="#" onclick="MReader.toggleFeedsLink();return false;">Feeds</a>
-        </header>  
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0" />
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="./fonts.css" />
+    <link rel="stylesheet" type="text/css" href="./reset.css" />
+    <link rel="stylesheet" type="text/css" href="./responsive.css" />
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script type="text/javascript" src="./funcs.js"></script>
+    <script type="text/javascript" src="./parseFeedCallback.js"></script>
+    <script type="text/javascript" src="./showPageCallback.js"></script>
+    <script type="text/javascript" src="./m.js"></script>
+    <script type="text/javascript" src="./m.feeds.js"></script>
+    <title>MReader</title>
+</head>
 
-        <section id="sidebar">&nbsp;</section>
+<body>
+    <header id="top">
+        <a class="logo-container" href="?">
+            <span class="logo">M</span>
+            <span class="logo-text">Reader</span>
+        </a>
+        <a class="about-link" href="?page=about">About</a>
+        <a class="feeds-link" href="#" onclick="MReader.toggleFeedsLink();return false;">Feeds</a>
+    </header>
 
-        <article id="maincolumn">&nbsp;</article>
+    <section id="sidebar">&nbsp;</section>
 
-        <script>var MReader = new m({'parseFeedCallback' : 'parseFeedCallback', 'showPageCallback' : 'showPageCallback'});MReader.run();</script>    
-    </body>
+    <article id="maincolumn">&nbsp;</article>
+
+    <script>
+        var MReader = new m({
+            'parseFeedCallback': 'parseFeedCallback',
+            'showPageCallback': 'showPageCallback'
+        });
+        MReader.run();
+    </script>
+</body>
+
 </html>

@@ -1,3 +1,5 @@
+/*jslint browser: true, devel: true, node: true, sloppy: true, plusplus: true*/
+
 function $(q) {
     var query = document.querySelectorAll(q);
     if (query.length === 1) {

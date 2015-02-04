@@ -1,112 +1,111 @@
 body {
     font-family: 'Droid Sans', sans-serif;
 }
-
 header#top {
     background-color: #000000;
 }
-
 header#top a {
     text-decoration: none;
     color: #FFFFFF;
 }
-
 header#top a.logo-container {
     display: inline-block;
 }
-
 header#top a.logo-container span.logo {
     margin-left: 10px;
     font-size: 3em;
     font-weight: bold;
     display: inline-block;
 }
-
 header#top a.logo-container span.logo-text {
     margin-left: -5px;
     font-size: 1.5em;
     font-weight: bold;
     display: inline-block;
 }
-
 header#top a.feeds-link {
     float: right;
     vertical-align: baseline;
     display: none;
     margin-top: 0.35em;
-    margin-right: 10px; 
+    margin-right: 10px;
     padding: 10px;
     background-color: #E2E2E2;
     color: #666666;
     font-weight: bold;
 }
-
 header#top a.about-link {
     float: right;
     vertical-align: baseline;
     margin-top: 0.35em;
-    margin-right: 10px; 
+    margin-right: 10px;
     padding: 10px;
     background-color: #E2E2E2;
     color: #666666;
     font-weight: bold;
 }
-
 section#sidebar ul.list-feeds {
-    margin: 6px 0px 6px 6px;
+    margin: 6px 0 6px 6px;
 }
-
 section#sidebar ul.list-feeds li a {
+    color: #000000;
+    font-weight: bold;
     display: block;
     text-decoration: none;
     padding: 10px 5px;
-    margin-bottom: 4px;
     background-repeat: no-repeat;
-    background-position: 9px 9px ;
+    background-position: 9px 9px;
     padding-left: 35px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
+section#sidebar ul.list-feeds li a.selected {
+    background-color: #CECECE;
+}
 @media screen and (max-width: 720px) {
     header#top a.feeds-link {
         display: inline-block;
     }
-
     section#sidebar ul.list-feeds {
         margin: 6px;
     }
 }
-
+article#maincolumn {
+    background-color: #CECECE;
+}
 article#maincolumn ul.items {
     margin: 6px;
 }
-
+article#maincolumn ul.items p {
+    margin-bottom: 10px;
+}
+article#maincolumn ul.items p a {
+    border-bottom: 1px dotted #484640;
+    padding-bottom: 3px;
+}
 article#maincolumn ul.items li {
     padding: 10px 5px;
     font-weight: bold;
     border-bottom: 1px solid #FFFFFF;
     line-height: 1.3em;
 }
-
-article#maincolumn ul.items li a{
+article#maincolumn ul.items li a {
     text-decoration: none;
+    color: #000000;
 }
-
 article#maincolumn ul.items li a span.domainName {
-    font-weight: bold; 
+    font-weight: bold;
     margin-left: 5px;
     font-size: smaller;
     display: inline-block;
 }
-
-article#maincolumn ul.items li span.extraContent a{
-    font-weight: bold; 
+article#maincolumn ul.items li span.extraContent a {
+    font-weight: bold;
     margin-left: 5px;
     color: #484640;
     display: inline-block;
-    background-color: #D6D1C9;
+    background-color: #FFFFFF;
     border: 1px solid #D6D1C9;
     padding: 2px 4px;
     font-size: smaller;

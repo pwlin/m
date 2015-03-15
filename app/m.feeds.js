@@ -28,6 +28,12 @@ m.prototype.feeds = [
     },
 
     {
+        'feedName': 'GadgetFolder',
+        'feedUrl': 'http://www.gadgetfolder.com/feed',
+        'webUrl': 'http://www.gadgetfolder.com/'
+    },
+
+    {
         'feedName': 'CNGadget',
         'feedUrl': 'http://cngadget.info/feed',
         'webUrl': 'http://cngadget.info/',
@@ -76,24 +82,6 @@ m.prototype.feeds = [
         'feedUrl': 'https://news.layervault.com/?format=rss',
         'webUrl': 'https://news.layervault.com/',
         'favIcon': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABLElEQVR4nKWTTU4CQRBGX3fPn8NgUAE1xpgQQ1gYTmFc6HG4BYkrL2bc4cLEpYmwYhCa6W4XhBnQAYzUrir9ffWq0iWcc4I9wltNur3X+N8G3d6gBmK0FwHAZPSO0ZPdwjDh4Ojyt4HNZpj5104D6QXlBEmzvVO8RvKzkH6+rY0g/Yikcc34Y4A180IYVYmPr/Dqt/1nAKF8eX7zQFA5wUWH+UMhFz2MnmCNLoyVnxN0AXAOAJ0OMbN0jcCPa38fwQsrCFWUpQo2iksNhPSQ0q7kCoCodoGzZoUsLDfQ6ZBsNgagetpBBYvPGVab5QTOZhoIlp3ieivfx3KBW0JLm037zmid1FsLNOkhlY9UPkJsvjMHGugL55w4u3+KGp07uU1QEvblsT0V+57zN4FmWE2JmgtuAAAAAElFTkSuQmCC'
-    },
-
-    {
-        'feedName': '/r/JavaScript',
-        'feedUrl': 'http://www.reddit.com/r/javascript/.rss',
-        'webUrl': 'http://www.reddit.com/'
-    },
-
-    {
-        'feedName': '/r/PHP',
-        'feedUrl': 'http://www.reddit.com/r/php/.rss',
-        'webUrl': 'http://www.reddit.com/'
-    },
-
-    {
-        'feedName': '/r/CSS',
-        'feedUrl': 'http://www.reddit.com/r/css/.rss',
-        'webUrl': 'http://www.reddit.com/'
     },
 
     {

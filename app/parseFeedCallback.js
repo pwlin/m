@@ -5,12 +5,14 @@ function handleExtraContent(feed, entry) {
     entry.extraContent = '';
     entry.domain_name = '';
     var isMobileUser = navigator.userAgent.match(/Android|iPhone/i) ? true : false;
+    //isMobileUser = true;
     switch (feed.feedName) {
     case 'HN':
         entry.extraContent = entry.content;
         entry.extraContent = entry.extraContent.replace(/<a href/ig, '<a target="_blank" href');
         if (isMobileUser === true) {
             // entry.extraContent = entry.extraContent.replace(/https:\/\/news\.ycombinator\.com\/item\?id=/, 'http://ihackernews.com/comments/');
+            //entry.extraContent = entry.extraContent.replace(/https:\/\/news\.ycombinator\.com\/item\?id=/, 'http://hn.premii.com/#/comments/');
             entry.extraContent = entry.extraContent.replace(/https:\/\/news\.ycombinator\.com\/item\?id=/, 'http://cheeaun.github.io/hackerweb/#/item/');
         }
         entry.domain_name = (entry.link.match(/:\/\/(.[^\/]+)/)[1]).replace(/^www\./, '');

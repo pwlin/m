@@ -3,7 +3,8 @@
 
 var m = function (params) {
     this.params = params || {};
-    this.apiUrl = '//ajax.googleapis.com/ajax/services/feed/load?v=1.0';
+    this.apiUrl = '//query.yahooapis.com/v1/public/yql?q=select%20*%20from%20xml%20where%20url%20%3D%20%27|||FEED_URL|||%27&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys';
+    this.currentFeedKey = '';
     this.run = function () {
         if (document.location.protocol === 'file:') {
             this.apiUrl = 'https:' + this.apiUrl;
@@ -62,13 +63,12 @@ var m = function (params) {
     };
 
     this.getFeed = function (feedKey, apiUrl) {
-        apiUrl += '&q=' + encodeURIComponent(this.feeds[feedKey].feedUrl);
+        this.currentFeedKey = feedKey;
+        apiUrl = apiUrl.replace('|||FEED_URL|||', encodeURIComponent(this.feeds[this.currentFeedKey].feedUrl));
         apiUrl += '&callback=' + this.params.parseFeedCallback;
-        apiUrl += '&context=' + feedKey;
-        apiUrl += '&num=50';
         apiUrl += '&_=' + new Date().valueOf();
-        //console.log('loading ', apiUrl);
-        $('article#maincolumn').innerHTML = '<ul class="items"><li>Loading ' + this.feeds[feedKey].feedName + ' ...</li></ul>';
+        console.log('loading ', apiUrl);
+        $('article#maincolumn').innerHTML = '<ul class="items"><li>Loading ' + this.feeds[this.currentFeedKey].feedName + ' ...</li></ul>';
         inc(apiUrl);
     };
 

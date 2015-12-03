@@ -2,13 +2,18 @@
 /*global $, MReader*/
 
 function handleExtraContent(feed, entry) {
+    if (entry.origLink) {
+        entry.link = entry.origLink;
+    } else if (entry.link.href) {
+        entry.link = entry.link.href;
+    }
     entry.extraContent = '';
     entry.domain_name = '';
     var isMobileUser = navigator.userAgent.match(/Android|iPhone/i) ? true : false;
     //isMobileUser = true;
     switch (feed.feedName) {
     case 'HN':
-        entry.extraContent = entry.content;
+        entry.extraContent = entry.description;
         entry.extraContent = entry.extraContent.replace(/<a href/ig, '<a target="_blank" href');
         if (isMobileUser === true) {
             // entry.extraContent = entry.extraContent.replace(/https:\/\/news\.ycombinator\.com\/item\?id=/, 'http://ihackernews.com/comments/');
@@ -19,9 +24,9 @@ function handleExtraContent(feed, entry) {
         break;
 
     case 'DN':
-        if (entry.contentSnippet.match(/^http/)) {
+        if (entry.description.match(/^http/)) {
             entry.extraContent = '<a target="_blank" href="' + entry.link.replace(/\/click/, '') + '">Comments</a>';
-            entry.link = entry.contentSnippet;
+            entry.link = entry.description;
         } else {
             entry.link = entry.link.replace(/\/click/, '');
         }
@@ -37,18 +42,19 @@ function handleExtraContent(feed, entry) {
         break;
 
     case 'Liliputing':
-        entry.link = entry.content.match(/<a rel="nofollow" href="([^"]*)">(.*)<\/a>/i)[1];
+        entry.link = entry.description.match(/<a rel="nofollow" href="([^"]*)">(.*)<\/a>/i)[1];
         break;
 
     }
     return entry;
 }
 
-function parseFeedCallback(feedKey, response) {
+function parseFeedCallback(response) {
     //console.log(response);
-    var feed = MReader.feeds[feedKey],
+    var feedKey = MReader.currentFeedKey,
+        feed = MReader.feeds[feedKey],
         content = '',
-        entries = response.feed.entries,
+        entries = response.query.results.rss ? response.query.results.rss.channel.item : response.query.results.feed.entry,
         i,
         k,
         entry;

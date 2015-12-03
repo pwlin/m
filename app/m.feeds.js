@@ -34,13 +34,6 @@ m.prototype.feeds = [
     },
 
     {
-        'feedName': 'CNGadget',
-        'feedUrl': 'http://cngadget.info/feed',
-        'webUrl': 'http://cngadget.info/',
-        'favIcon': 'default'
-    },
-
-    {
         'feedName': 'ARMDevices',
         'feedUrl': 'http://feeds.feedburner.com/armdevices',
         'webUrl': 'http://armdevices.net/',
@@ -79,8 +72,8 @@ m.prototype.feeds = [
 
     {
         'feedName': 'DN',
-        'feedUrl': 'https://news.layervault.com/?format=rss',
-        'webUrl': 'https://news.layervault.com/',
+        'feedUrl': 'https://www.designernews.co/?format=rss',
+        'webUrl': 'https://www.designernews.co/',
         'favIcon': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABLElEQVR4nKWTTU4CQRBGX3fPn8NgUAE1xpgQQ1gYTmFc6HG4BYkrL2bc4cLEpYmwYhCa6W4XhBnQAYzUrir9ffWq0iWcc4I9wltNur3X+N8G3d6gBmK0FwHAZPSO0ZPdwjDh4Ojyt4HNZpj5104D6QXlBEmzvVO8RvKzkH6+rY0g/Yikcc34Y4A180IYVYmPr/Dqt/1nAKF8eX7zQFA5wUWH+UMhFz2MnmCNLoyVnxN0AXAOAJ0OMbN0jcCPa38fwQsrCFWUpQo2iksNhPSQ0q7kCoCodoGzZoUsLDfQ6ZBsNgagetpBBYvPGVab5QTOZhoIlp3ieivfx3KBW0JLm037zmid1FsLNOkhlY9UPkJsvjMHGugL55w4u3+KGp07uU1QEvblsT0V+57zN4FmWE2JmgtuAAAAAElFTkSuQmCC'
     },
 

@@ -3,7 +3,7 @@
 
 var m = function (params) {
     this.params = params || {};
-    this.apiUrl = '//query.yahooapis.com/v1/public/yql?q=select%20*%20from%20xml%20where%20url%20%3D%20%27|||FEED_URL|||%27&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys';
+    this.apiUrl = '//query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent("select * from xml where url='") + '|||FEED_URL|||' + encodeURIComponent("'") + '&format=json&env=' + encodeURIComponent('store://datatables.org/alltableswithkeys');
     this.currentFeedKey = '';
     this.run = function () {
         if (document.location.protocol === 'file:') {

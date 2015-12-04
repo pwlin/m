@@ -3,9 +3,15 @@
 
 function handleExtraContent(feed, entry) {
     if (entry.origLink) {
-        entry.link = entry.origLink;
+        if (entry.origLink.href) {
+            entry.link = entry.origLink.href;
+        } else if (entry.origLink.content) {
+            entry.link = entry.origLink.content;
+        }
     } else if (entry.link.href) {
         entry.link = entry.link.href;
+    } else if (entry.link.content) {
+        entry.link = entry.link.content;
     }
     entry.extraContent = '';
     entry.domain_name = '';
@@ -16,8 +22,6 @@ function handleExtraContent(feed, entry) {
         entry.extraContent = entry.description;
         entry.extraContent = entry.extraContent.replace(/<a href/ig, '<a target="_blank" href');
         if (isMobileUser === true) {
-            // entry.extraContent = entry.extraContent.replace(/https:\/\/news\.ycombinator\.com\/item\?id=/, 'http://ihackernews.com/comments/');
-            //entry.extraContent = entry.extraContent.replace(/https:\/\/news\.ycombinator\.com\/item\?id=/, 'http://hn.premii.com/#/comments/');
             entry.extraContent = entry.extraContent.replace(/https:\/\/news\.ycombinator\.com\/item\?id=/, 'http://cheeaun.github.io/hackerweb/#/item/');
         }
         entry.domain_name = (entry.link.match(/:\/\/(.[^\/]+)/)[1]).replace(/^www\./, '');

@@ -28,9 +28,15 @@ m.prototype.feeds = [
     },
 
     {
-        'feedName': 'GadgetFolder',
-        'feedUrl': 'http://www.gadgetfolder.com/feed',
-        'webUrl': 'http://www.gadgetfolder.com/'
+        'feedName': 'TF',
+        'feedUrl': 'https://torrentfreak.com/feed/',
+        'webUrl': 'https://torrentfreak.com/'
+    },
+
+    {
+        'feedName': 'hubski',
+        'feedUrl': 'http://hubski.com/rss?id=2',
+        'webUrl': 'http://hubski.com/global?id=3'
     },
 
     {
@@ -47,12 +53,6 @@ m.prototype.feeds = [
     },
 
     {
-        'feedName': 'WebUpd8',
-        'feedUrl': 'http://feeds2.feedburner.com/webupd8',
-        'webUrl': 'http://www.webupd8.org/'
-    },
-
-    {
         'feedName': 'TutsPlus',
         'feedUrl': 'http://code.tutsplus.com/posts.atom',
         'webUrl': 'http://code.tutsplus.com/'
@@ -62,12 +62,6 @@ m.prototype.feeds = [
         'feedName': 'Codrops',
         'feedUrl': 'http://feeds2.feedburner.com/tympanus',
         'webUrl': 'http://tympanus.net/codrops/'
-    },
-
-    {
-        'feedName': 'hubski',
-        'feedUrl': 'http://hubski.com/rss?id=2',
-        'webUrl': 'http://hubski.com/global?id=3'
     },
 
     {
@@ -97,9 +91,15 @@ m.prototype.feeds = [
     },
 
     {
-        'feedName': 'Geek Alerts',
-        'feedUrl': 'http://feeds.feedburner.com/geekalerts',
-        'webUrl': 'http://www.geekalerts.com/'
+        'feedName': 'WebUpd8',
+        'feedUrl': 'http://feeds2.feedburner.com/webupd8',
+        'webUrl': 'http://www.webupd8.org/'
+    },
+
+    {
+        'feedName': 'GadgetFolder',
+        'feedUrl': 'http://www.gadgetfolder.com/feed',
+        'webUrl': 'http://www.gadgetfolder.com/'
     }
 
 ];

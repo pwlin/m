@@ -7,6 +7,8 @@ function handleExtraContent(feed, entry) {
             entry.link = entry.origLink.href;
         } else if (entry.origLink.content) {
             entry.link = entry.origLink.content;
+        } else {
+            entry.link = entry.origLink;
         }
     } else if (entry.link.href) {
         entry.link = entry.link.href;
@@ -55,6 +57,7 @@ function handleExtraContent(feed, entry) {
 
 function parseFeedCallback(response) {
     //console.log(response);
+    //return;
     var feedKey = MReader.currentFeedKey,
         feed = MReader.feeds[feedKey],
         content = '',

@@ -36,25 +36,29 @@ m.prototype.feeds = [
     {
         'feedName': 'JavaScript Weekly',
         'feedUrl': 'http://javascriptweekly.com/rss/1fn94ba4',
-        'webUrl': 'http://javascriptweekly.com/'
+        'webUrl': 'http://javascriptweekly.com/',
+        'favIcon': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABZ0RVh0Q3JlYXRpb24gVGltZQAxMi8xMy8xNQNMtUcAAAAhdEVYdFNvZnR3YXJlAE1hY3JvbWVkaWEgRmlyZXdvcmtzIDQuMOomJ3UAAAAdSURBVHicY2RYue4/AwWAiRLNowaMGjBqwGAyAAC7nwJ2dr1oWAAAAABJRU5ErkJggg=='
     },
 
     {
         'feedName': 'Mobile Web Weekly',
         'feedUrl': 'http://mobilewebweekly.co/rss/20gb62f2',
-        'webUrl': 'http://mobilewebweekly.co/'
+        'webUrl': 'http://mobilewebweekly.co/',
+        'favIcon': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABZ0RVh0Q3JlYXRpb24gVGltZQAxMi8xMy8xNQNMtUcAAAAhdEVYdFNvZnR3YXJlAE1hY3JvbWVkaWEgRmlyZXdvcmtzIDQuMOomJ3UAAAAdSURBVHicY/z/juE/AwWAiRLNowaMGjBqwGAyAAAdrQMMKNbmoAAAAABJRU5ErkJggg=='
     },
 
     {
         'feedName': 'HTML5 Weekly',
         'feedUrl': 'http://html5weekly.com/rss/243an68p',
-        'webUrl': 'http://html5weekly.com/'
+        'webUrl': 'http://html5weekly.com/',
+        'favIcon': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABZ0RVh0Q3JlYXRpb24gVGltZQAxMi8xMy8xNQNMtUcAAAAhdEVYdFNvZnR3YXJlAE1hY3JvbWVkaWEgRmlyZXdvcmtzIDQuMOomJ3UAAAAdSURBVHicY2TsOPOfgQLARInmUQNGDRg1YDAZAACzZgJ0M82jawAAAABJRU5ErkJggg=='
     },
 
     {
         'feedName': 'NodeJS Weekly',
         'feedUrl': 'http://nodeweekly.com/rss/1ijdccap',
-        'webUrl': 'http://nodeweekly.com/'
+        'webUrl': 'http://nodeweekly.com/',
+        'favIcon': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABZ0RVh0Q3JlYXRpb24gVGltZQAxMi8xMy8xNQNMtUcAAAAhdEVYdFNvZnR3YXJlAE1hY3JvbWVkaWEgRmlyZXdvcmtzIDQuMOomJ3UAAAAdSURBVHicYwzdrfSfgQLARInmUQNGDRg1YDAZAAAmegJRGLfWvQAAAABJRU5ErkJggg=='
     },
 
 

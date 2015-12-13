@@ -30,7 +30,6 @@ function handleEntries(feed, entries) {
         x,
         y;
     //isMobileUser = true;
-
     for (i = 0, k = entries.length; i < k; i++) {
         normalizeEntryLink(entries[i]);
         entries[i].extraContent = '';
@@ -90,7 +89,8 @@ function handleEntries(feed, entries) {
             'hired.com',
             'go.pluralsight.com',
             'joyent.com',
-            'toptal.com'
+            'toptal.com',
+            'ibm.biz'
         ];
         for (i = 0, k = entries.length; i < k; i++) {
             if (i !== 0) {
@@ -109,19 +109,14 @@ function handleEntries(feed, entries) {
                     continue;
                 }
                 tmpEntriesHrefs.push(tmpAllAnchors[x].href);
-                //tmpEntries.push([tmpAllAnchors[x].text.trim(), tmpAllAnchors[x].href]);
                 tmpEntries.push({
                     link: tmpAllAnchors[x].href,
                     title: tmpAllAnchors[x].text.trim(),
                     extraContent: '',
                     domain_name: tmpDomainName
                 });
-
             }
-
         }
-
-        //console.log(tmpEntries);
         entries = tmpEntries;
         break;
 

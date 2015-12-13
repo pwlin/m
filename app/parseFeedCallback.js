@@ -40,6 +40,7 @@ function handleEntries(feed, entries) {
     case 'HN':
         for (i = 0, k = entries.length; i < k; i++) {
             entries[i].extraContent = entries[i].description.replace(/<a href/ig, '<a target="_blank" href');
+            //console.log(entries[i].extraContent);
             if (isMobileUser === true) {
                 entries[i].extraContent = entries[i].extraContent.replace(/https:\/\/news\.ycombinator\.com\/item\?id=/, 'http://cheeaun.github.io/hackerweb/#/item/');
             }
@@ -58,13 +59,44 @@ function handleEntries(feed, entries) {
         }
         break;
 
+    case 'Trusted Reviews':
+        for (i = 0, k = entries.length; i < k; i++) {
+            entries[i].link = entries[i].link.replace(/\?source=rss$/, '');
+        }
+        break;
+
     case '/r/JavaScript':
     case '/r/CSS':
     case '/r/PHP':
+    case '/r/WebDev':
     case '/r/ShutupAndTakeMyMoney':
         for (i = 0, k = entries.length; i < k; i++) {
-            if (isMobileUser === true) {
-                entries[i].link = entries[i].link.replace(/\/$/, '/.compact');
+            tmpContent = entries[i].description.match(/<a[^>]*>([\s\S]*?)<\/a>/ig);
+            //console.log(tmpContent);
+            if (tmpContent) {
+                for (x = 0, y = tmpContent.length; x < y; x++) {
+                    if (tmpContent[x].match(/comments\]<\/a>|comment\]<\/a>/i)) {
+                        entries[i].extraContent = '<a target="_blank" href="' + tmpContent[x].match(/href="(.*)">/i)[1].replace(/^http:\/\//, 'https://') + '';
+                        if (isMobileUser === true) {
+                            entries[i].extraContent += '.compact';
+                        }
+                        entries[i].extraContent += '">Comments</a>';
+                    }
+                    if (tmpContent[x].match(/\[link\]<\/a>/i)) {
+                        entries[i].link = tmpContent[x].match(/href="(.*)">/i)[1];
+                        entries[i].domain_name = (entries[i].link.match(/:\/\/(.[^\/]+)/)[1]).replace(/^www\./, '');
+                        if (isMobileUser === true && entries[i].domain_name === 'reddit.com') {
+                            entries[i].link = entries[i].link.replace(/\/$/, '/.compact');
+                        }
+                    }
+                }
+                if (entries[i].domain_name === 'reddit.com') {
+                    entries[i].extraContent = '';
+                }
+            } else {
+                if (isMobileUser === true) {
+                    entries[i].link = entries[i].link.replace(/\/$/, '/.compact');
+                }
             }
         }
         break;
@@ -75,6 +107,7 @@ function handleEntries(feed, entries) {
     case 'NodeJS Weekly':
         tmpEntries = [];
         tmpRemoveDomains = [
+            document.location.host,
             'javascriptweekly.com',
             'mobilewebweekly.co',
             'html5weekly.com',
@@ -84,13 +117,13 @@ function handleEntries(feed, entries) {
             'booking.cooperpress.com',
             'cooperpress.com',
             'twitter.com',
-            'localhost:8888',
             'myemail.constantcontact.com',
             'hired.com',
             'go.pluralsight.com',
+            'go.rangle.io',
             'joyent.com',
             'toptal.com',
-            'ibm.biz'
+            'ibm.biz',
         ];
         for (i = 0, k = entries.length; i < k; i++) {
             if (i !== 0) {
@@ -98,8 +131,13 @@ function handleEntries(feed, entries) {
             }
             tmpContent = document.createElement('div');
             tmpContent.innerHTML = entries[i].description;
+            //console.log(tmpContent.innerHTML);
             tmpAllAnchors = $('a[target="_blank"]', tmpContent);
             for (x = 0, y = tmpAllAnchors.length; x < y; x++) {
+                //console.log(tmpAllAnchors[x].href);
+                if (!tmpAllAnchors[x].href.match(/^http/i)) {
+                    continue;
+                }
                 tmpDomainName = (tmpAllAnchors[x].href.match(/:\/\/(.[^\/]+)/)[1]).replace(/^www\./, '');
                 if (inArray(tmpRemoveDomains, tmpDomainName)) {
                     continue;
@@ -109,6 +147,7 @@ function handleEntries(feed, entries) {
                     continue;
                 }
                 tmpEntriesHrefs.push(tmpAllAnchors[x].href);
+                //console.log(tmpAllAnchors[x].href);
                 tmpEntries.push({
                     link: tmpAllAnchors[x].href,
                     title: tmpAllAnchors[x].text.trim(),
@@ -127,7 +166,7 @@ function handleEntries(feed, entries) {
 }
 
 function parseFeedCallback(response) {
-    //console.log(response);
+    console.log(response);
     //return;
     var feedKey = MReader.currentFeedKey,
         feed = MReader.feeds[feedKey],

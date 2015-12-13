@@ -61,6 +61,17 @@ m.prototype.feeds = [
         'favIcon': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABZ0RVh0Q3JlYXRpb24gVGltZQAxMi8xMy8xNQNMtUcAAAAhdEVYdFNvZnR3YXJlAE1hY3JvbWVkaWEgRmlyZXdvcmtzIDQuMOomJ3UAAAAdSURBVHicYwzdrfSfgQLARInmUQNGDRg1YDAZAAAmegJRGLfWvQAAAABJRU5ErkJggg=='
     },
 
+    {
+        'feedName': '/r/JavaScript',
+        'feedUrl': 'http://www.reddit.com/r/javascript/.rss',
+        'webUrl': 'http://www.reddit.com/r/javascript'
+    },
+
+    {
+        'feedName': '/r/WebDev',
+        'feedUrl': 'http://www.reddit.com/r/webdev/.rss',
+        'webUrl': 'http://www.reddit.com/r/webdev'
+    },
 
     {
         'feedName': 'hubski',

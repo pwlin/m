@@ -123,7 +123,7 @@ function handleEntries(feed, entries) {
             'go.rangle.io',
             'joyent.com',
             'toptal.com',
-            'ibm.biz',
+            'ibm.biz'
         ];
         for (i = 0, k = entries.length; i < k; i++) {
             if (i !== 0) {
@@ -166,7 +166,7 @@ function handleEntries(feed, entries) {
 }
 
 function parseFeedCallback(response) {
-    console.log(response);
+    //console.log(response);
     //return;
     var feedKey = MReader.currentFeedKey,
         feed = MReader.feeds[feedKey],

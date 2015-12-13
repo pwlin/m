@@ -34,6 +34,31 @@ m.prototype.feeds = [
     },
 
     {
+        'feedName': 'JavaScript Weekly',
+        'feedUrl': 'http://javascriptweekly.com/rss/1fn94ba4',
+        'webUrl': 'http://javascriptweekly.com/'
+    },
+
+    {
+        'feedName': 'Mobile Web Weekly',
+        'feedUrl': 'http://mobilewebweekly.co/rss/20gb62f2',
+        'webUrl': 'http://mobilewebweekly.co/'
+    },
+
+    {
+        'feedName': 'HTML5 Weekly',
+        'feedUrl': 'http://html5weekly.com/rss/243an68p',
+        'webUrl': 'http://html5weekly.com/'
+    },
+
+    {
+        'feedName': 'NodeJS Weekly',
+        'feedUrl': 'http://nodeweekly.com/rss/1ijdccap',
+        'webUrl': 'http://nodeweekly.com/'
+    },
+
+
+    {
         'feedName': 'hubski',
         'feedUrl': 'http://hubski.com/rss?id=2',
         'webUrl': 'http://hubski.com/global?id=3'

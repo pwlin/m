@@ -1,28 +1,34 @@
 body {
     font-family: 'Droid Sans', sans-serif;
 }
+
 header#top {
     background-color: #000000;
 }
+
 header#top a {
     text-decoration: none;
     color: #FFFFFF;
 }
+
 header#top a.logo-container {
     display: inline-block;
 }
+
 header#top a.logo-container span.logo {
     margin-left: 10px;
     font-size: 3em;
     font-weight: bold;
     display: inline-block;
 }
+
 header#top a.logo-container span.logo-text {
     margin-left: -5px;
     font-size: 1.5em;
     font-weight: bold;
     display: inline-block;
 }
+
 header#top a.feeds-link {
     float: right;
     vertical-align: baseline;
@@ -34,6 +40,7 @@ header#top a.feeds-link {
     color: #666666;
     font-weight: bold;
 }
+
 header#top a.about-link {
     float: right;
     vertical-align: baseline;
@@ -44,9 +51,11 @@ header#top a.about-link {
     color: #666666;
     font-weight: bold;
 }
+
 section#sidebar ul.list-feeds {
     margin: 6px 0 6px 6px;
 }
+
 section#sidebar ul.list-feeds li a {
     color: #000000;
     font-weight: bold;
@@ -60,9 +69,11 @@ section#sidebar ul.list-feeds li a {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
 section#sidebar ul.list-feeds li a.selected {
     background-color: #CECECE;
 }
+
 @media screen and (max-width: 720px) {
     header#top a.feeds-link {
         display: inline-block;
@@ -71,35 +82,48 @@ section#sidebar ul.list-feeds li a.selected {
         margin: 6px;
     }
 }
+
 article#maincolumn {
     background-color: #CECECE;
 }
+
 article#maincolumn ul.items {
     margin: 6px;
 }
+
 article#maincolumn ul.items p {
     margin-bottom: 10px;
 }
+
 article#maincolumn ul.items p a {
     border-bottom: 1px dotted #484640;
     padding-bottom: 3px;
 }
+
 article#maincolumn ul.items li {
     padding: 10px 5px;
     font-weight: bold;
     border-bottom: 1px solid #FFFFFF;
     line-height: 1.3em;
 }
+
 article#maincolumn ul.items li a {
     text-decoration: none;
     color: #000000;
 }
+
+article#maincolumn ul.items li a.feedWebUrl {
+    border-bottom: 1px dotted #484640;
+    padding-bottom: 3px;
+}
+
 article#maincolumn ul.items li a span.domainName {
     font-weight: bold;
     margin-left: 5px;
     font-size: smaller;
     display: inline-block;
 }
+
 article#maincolumn ul.items li span.extraContent a {
     font-weight: bold;
     margin-left: 5px;

@@ -1,7 +1,7 @@
-/*jslint browser: true, devel: true, node: true, sloppy: true, plusplus: true, regexp: true*/
-/*global $, MReader*/
+/*jslint browser: true, devel: true, node: true, sloppy: true, plusplus: true, regexp: true, continue:true*/
+/*global $, MReader, inArray*/
 
-function handleExtraContent(feed, entry) {
+function normalizeEntryLink(entry) {
     if (entry.origLink) {
         if (entry.origLink.href) {
             entry.link = entry.origLink.href;
@@ -15,26 +15,47 @@ function handleExtraContent(feed, entry) {
     } else if (entry.link.content) {
         entry.link = entry.link.content;
     }
-    entry.extraContent = '';
-    entry.domain_name = '';
-    var isMobileUser = navigator.userAgent.match(/Android|iPhone/i) ? true : false;
+}
+
+function handleEntries(feed, entries) {
+    var i,
+        k,
+        isMobileUser = navigator.userAgent.match(/Android|iPhone/i) ? true : false,
+        tmpEntries = [],
+        tmpEntriesHrefs = [],
+        tmpAllAnchors = [],
+        tmpContent = '',
+        tmpRemoveDomains = [],
+        tmpDomainName = '',
+        x,
+        y;
     //isMobileUser = true;
+
+    for (i = 0, k = entries.length; i < k; i++) {
+        normalizeEntryLink(entries[i]);
+        entries[i].extraContent = '';
+        entries[i].domain_name = '';
+    }
+
     switch (feed.feedName) {
     case 'HN':
-        entry.extraContent = entry.description;
-        entry.extraContent = entry.extraContent.replace(/<a href/ig, '<a target="_blank" href');
-        if (isMobileUser === true) {
-            entry.extraContent = entry.extraContent.replace(/https:\/\/news\.ycombinator\.com\/item\?id=/, 'http://cheeaun.github.io/hackerweb/#/item/');
+        for (i = 0, k = entries.length; i < k; i++) {
+            entries[i].extraContent = entries[i].description.replace(/<a href/ig, '<a target="_blank" href');
+            if (isMobileUser === true) {
+                entries[i].extraContent = entries[i].extraContent.replace(/https:\/\/news\.ycombinator\.com\/item\?id=/, 'http://cheeaun.github.io/hackerweb/#/item/');
+            }
+            entries[i].domain_name = (entries[i].link.match(/:\/\/(.[^\/]+)/)[1]).replace(/^www\./, '');
         }
-        entry.domain_name = (entry.link.match(/:\/\/(.[^\/]+)/)[1]).replace(/^www\./, '');
         break;
 
     case 'DN':
-        if (entry.description.match(/^http/)) {
-            entry.extraContent = '<a target="_blank" href="' + entry.link.replace(/\/click/, '') + '">Comments</a>';
-            entry.link = entry.description;
-        } else {
-            entry.link = entry.link.replace(/\/click/, '');
+        for (i = 0, k = entries.length; i < k; i++) {
+            if (entries[i].description.match(/^http/)) {
+                entries[i].extraContent = '<a target="_blank" href="' + entries[i].link.replace(/\/click/, '') + '">Comments</a>';
+                entries[i].link = entries[i].description;
+            } else {
+                entries[i].link = entries[i].link.replace(/\/click/, '');
+            }
         }
         break;
 
@@ -42,17 +63,72 @@ function handleExtraContent(feed, entry) {
     case '/r/CSS':
     case '/r/PHP':
     case '/r/ShutupAndTakeMyMoney':
-        if (isMobileUser === true) {
-            entry.link = entry.link.replace(/\/$/, '/.compact');
+        for (i = 0, k = entries.length; i < k; i++) {
+            if (isMobileUser === true) {
+                entries[i].link = entries[i].link.replace(/\/$/, '/.compact');
+            }
         }
         break;
 
-    case 'Liliputing':
-        entry.link = entry.description.match(/<a rel="nofollow" href="([^"]*)">(.*)<\/a>/i)[1];
+    case 'JavaScript Weekly':
+    case 'Mobile Web Weekly':
+    case 'HTML5 Weekly':
+    case 'NodeJS Weekly':
+        tmpEntries = [];
+        tmpRemoveDomains = [
+            'javascriptweekly.com',
+            'mobilewebweekly.co',
+            'html5weekly.com',
+            'nodeweekly.com',
+            'manning.com',
+            'cooperpress.s3.amazonaws.com',
+            'booking.cooperpress.com',
+            'cooperpress.com',
+            'twitter.com',
+            'localhost:8888',
+            'myemail.constantcontact.com',
+            'hired.com',
+            'go.pluralsight.com',
+            'joyent.com',
+            'toptal.com'
+        ];
+        for (i = 0, k = entries.length; i < k; i++) {
+            if (i !== 0) {
+                break;
+            }
+            tmpContent = document.createElement('div');
+            tmpContent.innerHTML = entries[i].description;
+            tmpAllAnchors = $('a[target="_blank"]', tmpContent);
+            for (x = 0, y = tmpAllAnchors.length; x < y; x++) {
+                tmpDomainName = (tmpAllAnchors[x].href.match(/:\/\/(.[^\/]+)/)[1]).replace(/^www\./, '');
+                if (inArray(tmpRemoveDomains, tmpDomainName)) {
+                    continue;
+                }
+                tmpAllAnchors[x].href = tmpAllAnchors[x].href.replace(/\&utm(.*)|\?utm(.*)/ig, '').trim();
+                if (tmpAllAnchors[x].text.trim() === '' || inArray(tmpEntriesHrefs, tmpAllAnchors[x].href)) {
+                    continue;
+                }
+                tmpEntriesHrefs.push(tmpAllAnchors[x].href);
+                //tmpEntries.push([tmpAllAnchors[x].text.trim(), tmpAllAnchors[x].href]);
+                tmpEntries.push({
+                    link: tmpAllAnchors[x].href,
+                    title: tmpAllAnchors[x].text.trim(),
+                    extraContent: '',
+                    domain_name: tmpDomainName
+                });
+
+            }
+
+        }
+
+        //console.log(tmpEntries);
+        entries = tmpEntries;
         break;
 
     }
-    return entry;
+
+    return entries;
+
 }
 
 function parseFeedCallback(response) {
@@ -61,19 +137,18 @@ function parseFeedCallback(response) {
     var feedKey = MReader.currentFeedKey,
         feed = MReader.feeds[feedKey],
         content = '',
-        entries = response.query.results.rss ? response.query.results.rss.channel.item : response.query.results.feed.entry,
+        entries = response.query.results.rss ? handleEntries(feed, response.query.results.rss.channel.item) : handleEntries(feed, response.query.results.feed.entry),
         i,
-        k,
-        entry;
+        k;
+    //console.log(entries);
     content += '<ul class="items">';
-    content += '<li>Latest Entries In ' + feed.feedName + ':</li>';
+    content += '<li>Latest Entries In <a class="feedWebUrl" target="_blank" href="' + feed.webUrl + '">' + feed.feedName + '</a>:</li>';
     for (i = 0, k = entries.length; i < k; i++) {
-        entry = handleExtraContent(feed, entries[i]);
-        content += '<li><a target="_blank" href="' + entry.link + '">&#187; ' + entry.title;
-        if (entry.domain_name !== '') {
-            content += '<span class="domainName">[' + entry.domain_name + ']</span>';
+        content += '<li><a target="_blank" href="' + entries[i].link + '">&#187; ' + entries[i].title;
+        if (entries[i].domain_name !== '') {
+            content += '<span class="domainName">[' + entries[i].domain_name + ']</span>';
         }
-        content += '</a><span class="extraContent">' + entry.extraContent + '</span></li>';
+        content += '</a><span class="extraContent">' + entries[i].extraContent + '</span></li>';
     }
     content += '</ul>';
     $('article#maincolumn').innerHTML = content;

@@ -1,12 +1,18 @@
 /*jslint browser: true, devel: true, node: true, sloppy: true, plusplus: true*/
+/*global XPathResult*/
 
-function $(q) {
-    var query = document.querySelectorAll(q);
+function $(query, doc) {
+    doc = doc || document;
+    query = doc.querySelectorAll(query);
     if (query.length === 1) {
         return query[0];
     } else {
         return query;
     }
+}
+
+function inArray(arr, obj) {
+    return (arr.indexOf(obj) !== -1);
 }
 
 function inc(url) {

@@ -62,6 +62,13 @@ m.prototype.feeds = [
     },
 
     {
+        'feedName': 'WebOps Weekly',
+        'feedUrl': 'http://webopsweekly.com/rss/1ecjcl9j',
+        'webUrl': 'http://webopsweekly.com/',
+        'favIcon': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABZ0RVh0Q3JlYXRpb24gVGltZQAxMi8xMy8xNQNMtUcAAAAhdEVYdFNvZnR3YXJlAE1hY3JvbWVkaWEgRmlyZXdvcmtzIDQuMOomJ3UAAAAdSURBVHicY2TN6vnPQAFgokTzqAGjBowaMJgMAABGrwIacAI2pAAAAABJRU5ErkJggg=='
+    },
+
+    {
         'feedName': '/r/JavaScript',
         'feedUrl': 'http://www.reddit.com/r/javascript/.rss',
         'webUrl': 'http://www.reddit.com/r/javascript'

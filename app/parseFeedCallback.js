@@ -105,6 +105,7 @@ function handleEntries(feed, entries) {
     case 'Mobile Web Weekly':
     case 'HTML5 Weekly':
     case 'NodeJS Weekly':
+    case 'WebOps Weekly':
         tmpEntries = [];
         tmpRemoveDomains = [
             document.location.host,
@@ -112,6 +113,7 @@ function handleEntries(feed, entries) {
             'mobilewebweekly.co',
             'html5weekly.com',
             'nodeweekly.com',
+            'webopsweekly.com',
             'manning.com',
             'cooperpress.s3.amazonaws.com',
             'booking.cooperpress.com',

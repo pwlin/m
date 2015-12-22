@@ -15,6 +15,9 @@ function normalizeEntryLink(entry) {
     } else if (entry.link.content) {
         entry.link = entry.link.content;
     }
+    if (!entry.link.match(/^http/)) {
+        entry.link = 'http://' + entry.link;
+    }
 }
 
 function handleEntries(feed, entries) {
@@ -160,6 +163,18 @@ function handleEntries(feed, entries) {
         }
         entries = tmpEntries;
         break;
+
+
+
+    case 'OpenHunt':
+        for (i = 0, k = entries.length; i < k; i++) {
+            entries[i].extraContent = '<div class="short-description">' + entries[i].description + '</div>';
+            //console.log(entries[i].extraContent);
+            //console.log(entries[i].link);
+            entries[i].domain_name = (entries[i].link.match(/:\/\/(.[^\/]+)/)[1]).replace(/^www\./, '');
+        }
+        break;
+
 
     }
 

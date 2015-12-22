@@ -134,3 +134,7 @@ article#maincolumn ul.items li span.extraContent a {
     padding: 2px 4px;
     font-size: smaller;
 }
+
+article#maincolumn ul.items li span.extraContent .short-description {
+    font-size: small;
+}

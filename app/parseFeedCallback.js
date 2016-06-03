@@ -74,7 +74,7 @@ function handleEntries(feed, entries) {
     case '/r/WebDev':
     case '/r/ShutupAndTakeMyMoney':
         for (i = 0, k = entries.length; i < k; i++) {
-            tmpContent = entries[i].description.match(/<a[^>]*>([\s\S]*?)<\/a>/ig);
+            tmpContent = entries[i].content.content.match(/<a[^>]*>([\s\S]*?)<\/a>/ig);
             //console.log(tmpContent);
             if (tmpContent) {
                 for (x = 0, y = tmpContent.length; x < y; x++) {

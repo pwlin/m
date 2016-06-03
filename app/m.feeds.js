@@ -81,12 +81,6 @@ m.prototype.feeds = [
     },
 
     {
-        'feedName': 'OpenHunt',
-        'feedUrl': 'https://www.openhunt.co/popular.rss',
-        'webUrl': 'https://www.openhunt.co/'
-    },
-
-    {
         'feedName': 'hubski',
         'feedUrl': 'http://hubski.com/rss?id=2',
         'webUrl': 'http://hubski.com/global?id=3'
@@ -147,12 +141,5 @@ m.prototype.feeds = [
         'feedName': 'WebUpd8',
         'feedUrl': 'http://feeds2.feedburner.com/webupd8',
         'webUrl': 'http://www.webupd8.org/'
-    },
-
-    {
-        'feedName': 'GadgetFolder',
-        'feedUrl': 'http://www.gadgetfolder.com/feed',
-        'webUrl': 'http://www.gadgetfolder.com/'
     }
-
 ];

@@ -1,7 +1,7 @@
 var m = function (params) {
     this.params = params || {};
     this.apiUrl = 'https://query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent("select * from xml where url='") + '|||FEED_URL|||' + encodeURIComponent("'") + '&format=json&env=' + encodeURIComponent('store://datatables.org/alltableswithkeys');
-    this.currentFeedKey = '';
+    this.currentFeed = '';
 
     this.run = function() {
         this[this.params['initFunction']]();

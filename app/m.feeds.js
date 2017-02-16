@@ -1,7 +1,4 @@
-/*jslint browser: true, devel: true, sloppy: true, plusplus: true*/
-/*global m */
 m.prototype.feeds = [
-
     {
         'feedName': 'HN',
         'feedUrl': 'https://news.ycombinator.com/rss',
@@ -12,7 +9,7 @@ m.prototype.feeds = [
     {
         'feedName': 'Liliputing',
         'feedUrl': 'http://feeds.feedburner.com/Liliputing?format=xml',
-        'webUrl': 'http://liliputing.com/'
+        'webUrl': 'http://liliputing.com/',
     },
 
     {
@@ -49,8 +46,8 @@ m.prototype.feeds = [
 
     {
         'feedName': 'HTML5 Weekly',
-        'feedUrl': 'http://html5weekly.com/rss/243an68p',
-        'webUrl': 'http://html5weekly.com/',
+        'feedUrl': 'http://frontendfocus.co/rss/243an68p',
+        'webUrl': 'http://frontendfocus.co/',
         'favIcon': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABZ0RVh0Q3JlYXRpb24gVGltZQAxMi8xMy8xNQNMtUcAAAAhdEVYdFNvZnR3YXJlAE1hY3JvbWVkaWEgRmlyZXdvcmtzIDQuMOomJ3UAAAAdSURBVHicY2TsOPOfgQLARInmUQNGDRg1YDAZAACzZgJ0M82jawAAAABJRU5ErkJggg=='
     },
 

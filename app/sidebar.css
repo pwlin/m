@@ -1,0 +1,37 @@
+body {
+    font-family: Verdana,Geneva,sans-serif;
+    font-size: 9pt;
+}
+
+
+#feed-selector {
+	width: 85%;
+	margin: 10px 5px 2px 5px;
+	display: inline-block;
+}
+
+.anchor-refresh {
+	display: inline-block;
+	cursor: pointer;
+	font-size: 12pt;
+}
+
+#entries {
+	margin: 0 8px 10px 5px;
+}
+
+#entries li {
+	white-space: nowrap;
+  	overflow: hidden;
+  	text-overflow: ellipsis;
+  	line-height: 25px;
+}
+
+#entries li a {
+	color: #000000;
+	text-decoration: none;
+}
+
+#entries li a:hover {
+	color: #FF0000;
+}

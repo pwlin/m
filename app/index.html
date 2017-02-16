@@ -4,16 +4,16 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1.0" />
-    <link rel="shortcut icon" href="./favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
     <link rel="stylesheet" type="text/css" href="./fonts.css" />
     <link rel="stylesheet" type="text/css" href="./reset.css" />
     <link rel="stylesheet" type="text/css" href="./responsive.css" />
-    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <link rel="stylesheet" type="text/css" href="./index.css" />
     <script type="text/javascript" src="./funcs.js"></script>
-    <script type="text/javascript" src="./parseFeedCallback.js"></script>
-    <script type="text/javascript" src="./showPageCallback.js"></script>
+    <script type="text/javascript" src="./normalizeFeedEntries.js"></script>
     <script type="text/javascript" src="./m.js"></script>
     <script type="text/javascript" src="./m.feeds.js"></script>
+    <script type="text/javascript" src="./m.index.js"></script>
     <title>MReader</title>
 </head>
 
@@ -24,7 +24,7 @@
             <span class="logo-text">Reader</span>
         </a>
         <a class="about-link" href="?page=about">About</a>
-        <a class="feeds-link" href="#" onclick="MReader.toggleFeedsLink();return false;">Feeds</a>
+        <a class="feeds-link" href="#" onclick="MReader.indexToggleFeedsLink();return false;">Feeds</a>
     </header>
 
     <section id="sidebar">&nbsp;</section>
@@ -33,8 +33,8 @@
 
     <script>
         var MReader = new m({
-            'parseFeedCallback': 'parseFeedCallback',
-            'showPageCallback': 'showPageCallback'
+            'initFunction': 'indexInit',
+            'feedCallback': 'MReader.indexFeedCallback'
         });
         MReader.run();
     </script>

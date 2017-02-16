@@ -1,6 +1,3 @@
-/*jslint browser: true, devel: true, node: true, sloppy: true, plusplus: true*/
-/*global XPathResult*/
-
 function $(query, doc) {
     doc = doc || document;
     query = doc.querySelectorAll(query);
@@ -15,7 +12,7 @@ function inArray(arr, obj) {
     return (arr.indexOf(obj) !== -1);
 }
 
-function inc(url) {
+function JSInclude(url) {
     var scriptElement = document.createElement('script');
     scriptElement.setAttribute('type', 'text/javascript');
     scriptElement.setAttribute('src', url);

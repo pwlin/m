@@ -1,6 +1,3 @@
-/*jslint browser: true, devel: true, node: true, sloppy: true, plusplus: true, regexp: true, continue:true*/
-/*global $, MReader, inArray*/
-
 function normalizeEntryLink(entry) {
     if (entry.origLink) {
         if (entry.origLink.href) {
@@ -20,8 +17,9 @@ function normalizeEntryLink(entry) {
     }
 }
 
-function handleEntries(feed, entries) {
-    var i,
+function normalizeFeedEntries(feed, response) {
+    var entries = response.query.results.rss ? response.query.results.rss.channel.item : response.query.results.feed.entry,
+        i,
         k,
         isMobileUser = navigator.userAgent.match(/Android|iPhone/i) ? true : false,
         tmpEntries = [],
@@ -65,6 +63,12 @@ function handleEntries(feed, entries) {
     case 'Trusted Reviews':
         for (i = 0, k = entries.length; i < k; i++) {
             entries[i].link = entries[i].link.replace(/\?source=rss$/, '');
+        }
+        break;
+
+    case 'TF':
+        for (i = 0, k = entries.length; i < k; i++) {
+            entries[i].comments = (entries[i].comments + '').replace(/#respond(.*)$/, '');
         }
         break;
 
@@ -115,6 +119,7 @@ function handleEntries(feed, entries) {
             'javascriptweekly.com',
             'mobilewebweekly.co',
             'html5weekly.com',
+            'frontendfocus.co',
             'nodeweekly.com',
             'webopsweekly.com',
             'manning.com',
@@ -128,13 +133,16 @@ function handleEntries(feed, entries) {
             'go.rangle.io',
             'joyent.com',
             'toptal.com',
-            'ibm.biz'
+            'ibm.biz',
+            'welcome.linode.com',
+            'go.npm.me'
         ];
         for (i = 0, k = entries.length; i < k; i++) {
             if (i !== 0) {
                 break;
             }
             tmpContent = document.createElement('div');
+            entries[i].description = (entries[i].description).replace(/<img[^>]*>/g, '');
             tmpContent.innerHTML = entries[i].description;
             //console.log(tmpContent.innerHTML);
             tmpAllAnchors = $('a[target="_blank"]', tmpContent);
@@ -180,30 +188,4 @@ function handleEntries(feed, entries) {
 
     return entries;
 
-}
-
-function parseFeedCallback(response) {
-    //console.log(response);
-    //return;
-    var feedKey = MReader.currentFeedKey,
-        feed = MReader.feeds[feedKey],
-        content = '',
-        entries = response.query.results.rss ? handleEntries(feed, response.query.results.rss.channel.item) : handleEntries(feed, response.query.results.feed.entry),
-        i,
-        k;
-    //console.log(entries);
-    content += '<ul class="items">';
-    content += '<li>Latest Entries In <a class="feedWebUrl" target="_blank" href="' + feed.webUrl + '">' + feed.feedName + '</a>:</li>';
-    for (i = 0, k = entries.length; i < k; i++) {
-        content += '<li><a target="_blank" href="' + entries[i].link + '">&#187; ' + entries[i].title;
-        if (entries[i].domain_name !== '') {
-            content += '<span class="domainName">[' + entries[i].domain_name + ']</span>';
-        }
-        content += '</a><span class="extraContent">' + entries[i].extraContent + '</span></li>';
-    }
-    content += '</ul>';
-    $('article#maincolumn').innerHTML = content;
-    if ($('article#maincolumn').offsetHeight < $('section#sidebar').offsetHeight) {
-        $('article#maincolumn').style.height = ($('section#sidebar').offsetHeight) + 'px';
-    }
 }

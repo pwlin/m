@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	    <meta charset="utf-8" />
+	    <link rel="shortcut icon" type="image/x-icon" href="./favicon-red.ico" />
+	    <link rel="stylesheet" type="text/css" href="./reset.css" />
+	    <link rel="stylesheet" type="text/css" href="./sidebar.css" />
+	    <script type="text/javascript" src="./funcs.js"></script>
+	    <script type="text/javascript" src="./normalizeFeedEntries.js"></script>
+	    <script type="text/javascript" src="./m.js"></script>
+	    <script type="text/javascript" src="./m.feeds.js"></script>
+	    <script type="text/javascript" src="./m.sidebar.js"></script>
+	    <title>MReader Sidebar</title>
+	</head>
+	<body>
+	    <select id="feed-selector" name="feed-selector"></select><a class="anchor-refresh" onclick="document.location.reload(true);" title="Refresh">&#x27f2;</a>
+		<ul id="entries"></ul>
+		<script>
+	    	var MReader = new m({
+	    		'initFunction': 'sidebarInit',
+	    		'feedCallback': 'MReader.sidebarFeedCallback'
+	        });
+	        MReader.run();
+	    </script>
+	</body>
+</html>

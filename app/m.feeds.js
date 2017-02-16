@@ -1,3 +1,4 @@
+/*global m */
 m.prototype.feeds = [
     {
         'feedName': 'HN',

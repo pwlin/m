@@ -1,4 +1,7 @@
+/*exported normalizeFeedEntries */
+/*global $, inArray */
 function normalizeEntryLink(entry) {
+    'use strict';
     if (entry.origLink) {
         if (entry.origLink.href) {
             entry.link = entry.origLink.href;
@@ -7,6 +10,7 @@ function normalizeEntryLink(entry) {
         } else {
             entry.link = entry.origLink;
         }
+        
     } else if (entry.link.href) {
         entry.link = entry.link.href;
     } else if (entry.link.content) {
@@ -18,6 +22,7 @@ function normalizeEntryLink(entry) {
 }
 
 function normalizeFeedEntries(feed, response) {
+    'use strict';
     var entries = response.query.results.rss ? response.query.results.rss.channel.item : response.query.results.feed.entry,
         i,
         k,

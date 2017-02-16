@@ -44,7 +44,7 @@ m.prototype.sidebarFeedCallback = function(response) {
         content = '';
 	//console.log(entries);
     for (i = 0, k = entries.length; i < k; i++) {
-        content += '<li><a title="' + entries[i].title + '" target="_blank" href="' + (entries[i].comments || entries[i].link) + '">&#187; ' + entries[i].title + '</a></li>';
+        content += '<li><a title="' + entries[i].title + ' [' + (entries[i].domain_name || 'self') + ']" target="_blank" href="' + (entries[i].comments || entries[i].link) + '">&#187; ' + entries[i].title + '</a></li>';
     }
     $('#entries').innerHTML = content;
 };

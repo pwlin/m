@@ -1,8 +1,14 @@
 /*global m, normalizeFeedEntries, $, forEach, triggerEvent */
 m.prototype.sidebarInit = function() {
     'use strict';
-    this.currentCateogry = localStorage.getItem('sidebar-selected-category') || 'Technology';
-    this.currentFeedIndex = localStorage.getItem('sidebar-selected-feed') || '0';
+    this.currentCateogry = 'Technology';
+    this.currentFeedIndex = '0';
+    try {
+        this.currentCateogry = localStorage.getItem('sidebar-selected-category');
+        this.currentFeedIndex = localStorage.getItem('sidebar-selected-feed');
+    } catch(e) {
+        //
+    }
     this.currentFeedObject = this.feeds[this.currentCateogry][parseInt(this.currentFeedIndex, 10)];
     this.sidebarDropDownCategory();
     this.sidebarDropDownFeed();

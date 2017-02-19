@@ -3,17 +3,23 @@ body {
     font-size: 9pt;
 }
 
+.dropdown-container {
+	width: 98%;
+	margin: 10px 5px 10px 5px;
+}
+
+#category-selector {
+	width: 30%;
+}
 
 #feed-selector {
-	width: 85%;
-	margin: 10px 5px 2px 5px;
-	display: inline-block;
+	width: 60%;
 }
 
 .anchor-refresh {
-	display: inline-block;
 	cursor: pointer;
 	font-size: 12pt;
+	width: 10%;
 }
 
 #entries {

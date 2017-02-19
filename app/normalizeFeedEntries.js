@@ -1,6 +1,6 @@
 /*exported normalizeFeedEntries */
-/*global $, inArray */
-function normalizeEntryLink(entry) {
+/*global $, inArray, inArrayPartial, isArray, normalizeEntryLink */
+window.normalizeEntryLink = function(entry) {
     'use strict';
     if (entry.origLink) {
         if (entry.origLink.href) {
@@ -10,7 +10,6 @@ function normalizeEntryLink(entry) {
         } else {
             entry.link = entry.origLink;
         }
-        
     } else if (entry.link.href) {
         entry.link = entry.link.href;
     } else if (entry.link.content) {
@@ -19,27 +18,32 @@ function normalizeEntryLink(entry) {
     if (!entry.link.match(/^http/)) {
         entry.link = 'http://' + entry.link;
     }
-}
+};
 
-function normalizeFeedEntries(feed, response) {
+window.normalizeFeedEntries = function(feed, response) {
     'use strict';
     var entries = response.query.results.rss ? response.query.results.rss.channel.item : response.query.results.feed.entry,
         i,
         k,
-        isMobileUser = navigator.userAgent.match(/Android|iPhone/i) ? true : false,
+        isMobileUser = isArray(navigator.userAgent.match(/Android|iPhone/i)),
         tmpEntries = [],
         tmpEntriesHrefs = [],
         tmpAllAnchors = [],
         tmpContent = '',
         tmpRemoveDomains = [],
+        tmpRemovePartialDomains = [],
         tmpDomainName = '',
         x,
         y;
-    //isMobileUser = true;
+    isMobileUser = true;
+    //console.log(feed, response);
     for (i = 0, k = entries.length; i < k; i++) {
         normalizeEntryLink(entries[i]);
         entries[i].extraContent = '';
         entries[i].domain_name = '';
+        if (isArray(entries[i].title)) {
+            entries[i].title = entries[i].title[0];
+        }
     }
 
     switch (feed.feedName) {
@@ -50,7 +54,7 @@ function normalizeFeedEntries(feed, response) {
             if (isMobileUser === true) {
                 entries[i].extraContent = entries[i].extraContent.replace(/https:\/\/news\.ycombinator\.com\/item\?id=/, 'http://cheeaun.github.io/hackerweb/#/item/');
             }
-            entries[i].domain_name = (entries[i].link.match(/:\/\/(.[^\/]+)/)[1]).replace(/^www\./, '');
+            entries[i].domain_name = entries[i].link.match(/:\/\/(.[^/]+)/)[1].replace(/^www\./, '');
         }
         break;
 
@@ -73,7 +77,13 @@ function normalizeFeedEntries(feed, response) {
 
     case 'TF':
         for (i = 0, k = entries.length; i < k; i++) {
-            entries[i].comments = (entries[i].comments + '').replace(/#respond(.*)$/, '');
+            entries[i].comments = (String(entries[i].comments)).replace(/#respond(.*)$/, '');
+        }
+        break;
+
+    case 'Google News':
+        for (i = 0, k = entries.length; i < k; i++) {
+            entries[i].link = (String(entries[i].link)).replace(/(.*)&url=/, '');
         }
         break;
 
@@ -88,7 +98,7 @@ function normalizeFeedEntries(feed, response) {
             if (tmpContent) {
                 for (x = 0, y = tmpContent.length; x < y; x++) {
                     if (tmpContent[x].match(/comments\]<\/a>|comment\]<\/a>/i)) {
-                        entries[i].extraContent = '<a target="_blank" href="' + tmpContent[x].match(/href="(.*)">/i)[1].replace(/^http:\/\//, 'https://') + '';
+                        entries[i].extraContent = String('<a target="_blank" href="' + tmpContent[x].match(/href="(.*)">/i)[1].replace(/^http:\/\//, 'https://'));
                         if (isMobileUser === true) {
                             entries[i].extraContent += '.compact';
                         }
@@ -96,7 +106,7 @@ function normalizeFeedEntries(feed, response) {
                     }
                     if (tmpContent[x].match(/\[link\]<\/a>/i)) {
                         entries[i].link = tmpContent[x].match(/href="(.*)">/i)[1];
-                        entries[i].domain_name = (entries[i].link.match(/:\/\/(.[^\/]+)/)[1]).replace(/^www\./, '');
+                        entries[i].domain_name = entries[i].link.match(/:\/\/(.[^/]+)/)[1].replace(/^www\./, '');
                         if (isMobileUser === true && entries[i].domain_name === 'reddit.com') {
                             entries[i].link = entries[i].link.replace(/\/$/, '/.compact');
                         }
@@ -140,14 +150,19 @@ function normalizeFeedEntries(feed, response) {
             'toptal.com',
             'ibm.biz',
             'welcome.linode.com',
-            'go.npm.me'
+            'go.npm.me',
+            'frontenddeveloperjob.com'
         ];
+        tmpRemovePartialDomains = [
+            'breezy.hr'
+        ];
+
         for (i = 0, k = entries.length; i < k; i++) {
             if (i !== 0) {
                 break;
             }
             tmpContent = document.createElement('div');
-            entries[i].description = (entries[i].description).replace(/<img[^>]*>/g, '');
+            entries[i].description = entries[i].description.replace(/<img[^>]*>/g, '');
             tmpContent.innerHTML = entries[i].description;
             //console.log(tmpContent.innerHTML);
             tmpAllAnchors = $('a[target="_blank"]', tmpContent);
@@ -156,11 +171,12 @@ function normalizeFeedEntries(feed, response) {
                 if (!tmpAllAnchors[x].href.match(/^http/i)) {
                     continue;
                 }
-                tmpDomainName = (tmpAllAnchors[x].href.match(/:\/\/(.[^\/]+)/)[1]).replace(/^www\./, '');
-                if (inArray(tmpRemoveDomains, tmpDomainName)) {
+                tmpDomainName = tmpAllAnchors[x].href.match(/:\/\/(.[^/]+)/)[1].replace(/^www\./, '');
+                if (inArray(tmpRemoveDomains, tmpDomainName) || inArrayPartial(tmpRemovePartialDomains, tmpDomainName)) {
                     continue;
                 }
-                tmpAllAnchors[x].href = tmpAllAnchors[x].href.replace(/\&utm(.*)|\?utm(.*)/ig, '').trim();
+
+                tmpAllAnchors[x].href = tmpAllAnchors[x].href.replace(/&utm(.*)|\?utm(.*)/ig, '').trim();
                 if (tmpAllAnchors[x].text.trim() === '' || inArray(tmpEntriesHrefs, tmpAllAnchors[x].href)) {
                     continue;
                 }
@@ -177,20 +193,11 @@ function normalizeFeedEntries(feed, response) {
         entries = tmpEntries;
         break;
 
-
-
-    case 'OpenHunt':
-        for (i = 0, k = entries.length; i < k; i++) {
-            entries[i].extraContent = '<div class="short-description">' + entries[i].description + '</div>';
-            //console.log(entries[i].extraContent);
-            //console.log(entries[i].link);
-            entries[i].domain_name = (entries[i].link.match(/:\/\/(.[^\/]+)/)[1]).replace(/^www\./, '');
-        }
+    default:
         break;
-
 
     }
 
     return entries;
 
-}
+};

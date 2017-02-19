@@ -1,16 +1,15 @@
 /*global m, qs, $, normalizeFeedEntries */
 m.prototype.indexInit = function() {
     'use strict';
-    window.addEventListener('resize', function () {
+    var pageName = qs('page'),
+        feedKey = qs('feed');
+    window.addEventListener('resize', function() {
         if ($('section#sidebar').style.display === 'none') {
             $('section#sidebar').removeAttribute('style');
         }
     }, false);
 
     this.indexSidebarFeeds();
-
-    var pageName = qs('page'),
-        feedKey = qs('feed');
 
     if (pageName) {
         this.indexPageCallback(pageName);
@@ -26,7 +25,7 @@ m.prototype.indexInit = function() {
 };
 
 
-m.prototype.indexSidebarFeeds = function () {
+m.prototype.indexSidebarFeeds = function() {
     'use strict';
     var sidebarContent = '',
         i,
@@ -63,7 +62,8 @@ m.prototype.indexFeedCallback = function(response) {
         i,
         k,
         content = '';
-	//console.log(entries);
+
+    //console.log(entries);
     content += '<ul class="items">';
     content += '<li>Latest Entries In <a class="feedWebUrl" target="_blank" href="' + this.currentFeed.webUrl + '">' + this.currentFeed.feedName + '</a>:</li>';
     for (i = 0, k = entries.length; i < k; i++) {
@@ -76,7 +76,7 @@ m.prototype.indexFeedCallback = function(response) {
     content += '</ul>';
     $('article#maincolumn').innerHTML = content;
     if ($('article#maincolumn').offsetHeight < $('section#sidebar').offsetHeight) {
-        $('article#maincolumn').style.height = ($('section#sidebar').offsetHeight) + 'px';
+        $('article#maincolumn').style.height = $('section#sidebar').offsetHeight + 'px';
     }
 };
 
@@ -95,11 +95,13 @@ m.prototype.indexPageCallback = function(pageName) {
     case 'about':
         this.indexAboutPage();
         break;
+    default:
+        break;
     }
 };
 
 m.prototype.indexAboutPage = function() {
-    'use strict'; 
+    'use strict';
     var content = '';
     content += '<ul class="items">';
     content += '<li><p>About MReader</p><p>This is a simple feed reader with the help of <a target="_blank" href="https://developer.yahoo.com/yql/">Yahoo\'s YQL Service</a>.</p>';
@@ -107,6 +109,6 @@ m.prototype.indexAboutPage = function() {
     content += '</ul>';
     $('article#maincolumn').innerHTML = content;
     if ($('article#maincolumn').offsetHeight < $('section#sidebar').offsetHeight) {
-        $('article#maincolumn').style.height = ($('section#sidebar').offsetHeight) + 'px';
+        $('article#maincolumn').style.height = $('section#sidebar').offsetHeight + 'px';
     }
 };

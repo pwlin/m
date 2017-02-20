@@ -4,10 +4,11 @@ m.prototype.sidebarInit = function() {
     this.currentCateogry = 'Technology';
     this.currentFeedIndex = '0';
     try {
-        this.currentCateogry = localStorage.getItem('sidebar-selected-category');
-        this.currentFeedIndex = localStorage.getItem('sidebar-selected-feed');
+        this.currentCateogry = localStorage.getItem('sidebar-selected-category') || 'Technology';
+        this.currentFeedIndex = localStorage.getItem('sidebar-selected-feed') || '0';
     } catch(e) {
         //
+        console.log(e);
     }
     this.currentFeedObject = this.feeds[this.currentCateogry][parseInt(this.currentFeedIndex, 10)];
     this.sidebarDropDownCategory();

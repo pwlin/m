@@ -85,13 +85,17 @@ m.prototype.sidebarFeedCallback = function(response) {
     var entries = normalizeFeedEntries(this.currentFeedObject, response),
         content = '';
     //console.log(entries);
-    forEach(entries, function(k, v) {
-        content += '<li>' + v.extraContent.replace(/Comments/, '[C] ');
-        content += '<a title="' + v.title.replace(/"/g, '\'');
-        if (v.domain_name !== '') {
-            content += ' [' + v.domain_name + ']';
-        }
-        content += '" target="_blank" href="' + v.link + '">&#187; ' + v.title + '</a></li>';
-    });
+    if (entries.length === 0) {
+        content += '<li>Ouch, something went wrong. <a class="ouch" href="#" onclick="document.location.reload(true);return false;">Please try again</a>.</li>';
+    } else {
+        forEach(entries, function(k, v) {
+            content += '<li>' + v.extraContent.replace(/Comments/, '[C] ');
+            content += '<a title="' + v.title.replace(/"/g, '\'');
+            if (v.domain_name !== '') {
+                content += ' [' + v.domain_name + ']';
+            }
+            content += '" target="_blank" href="' + v.link + '">&#187; ' + v.title + '</a></li>';
+        });
+    }
     $('#entries').innerHTML = content;
 };

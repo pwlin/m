@@ -38,6 +38,14 @@ body {
 	text-decoration: none;
 }
 
-#entries li a:hover {
+#entries li a.ouch {
+	color: #0000FF;
+}
+
+#entries li a:hover, #entries li a:visited:hover {
 	color: #FF0000;
+}
+
+#entries li a:visited {
+	color: #0000FF;
 }

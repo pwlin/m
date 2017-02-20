@@ -8,7 +8,6 @@ m.prototype.sidebarInit = function() {
         this.currentFeedIndex = localStorage.getItem('sidebar-selected-feed') || '0';
     } catch(e) {
         //
-        console.log(e);
     }
     this.currentFeedObject = this.feeds[this.currentCateogry][parseInt(this.currentFeedIndex, 10)];
     this.sidebarDropDownCategory();

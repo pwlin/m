@@ -35,7 +35,7 @@ window.normalizeFeedEntries = function(feed, response) {
         tmpDomainName = '',
         x,
         y;
-    isMobileUser = true;
+    //isMobileUser = true;
     //console.log(feed, response);
     for (i = 0, k = entries.length; i < k; i++) {
         normalizeEntryLink(entries[i]);
@@ -100,6 +100,7 @@ window.normalizeFeedEntries = function(feed, response) {
                     if (tmpContent[x].match(/comments\]<\/a>|comment\]<\/a>/i)) {
                         entries[i].extraContent = String('<a target="_blank" href="' + tmpContent[x].match(/href="(.*)">/i)[1].replace(/^http:\/\//, 'https://'));
                         if (isMobileUser === true) {
+                            console.log(true);
                             entries[i].extraContent += '.compact';
                         }
                         entries[i].extraContent += '">Comments</a>';

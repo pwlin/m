@@ -1,15 +1,19 @@
 /*global m, normalizeFeedEntries, $, forEach, triggerEvent */
 m.prototype.sidebarInit = function() {
     'use strict';
-    this.currentCateogry = 'Technology';
-    this.currentFeedIndex = '0';
     try {
-        this.currentCateogry = localStorage.getItem('sidebar-selected-category') || 'Technology';
-        this.currentFeedIndex = localStorage.getItem('sidebar-selected-feed') || '0';
+        this.currentCateogry = localStorage.getItem('sidebar-selected-category') || this.currentCateogry;
+        this.currentFeedIndex = localStorage.getItem('sidebar-selected-feed') || this.currentFeedIndex;
     } catch(e) {
         //
     }
-    this.currentFeedObject = this.feeds[this.currentCateogry][parseInt(this.currentFeedIndex, 10)];
+    this.currentFeedIndex = parseInt(this.currentFeedIndex, 10);
+    if (!this.feeds[this.currentCateogry]) {
+        this.currentCateogry = Object.keys(this.feeds)[0];
+    } else if (!this.feeds[this.currentCateogry][this.currentFeedIndex]) {
+        this.currentFeedIndex = 0;
+    }
+    this.currentFeedObject = this.feeds[this.currentCateogry][this.currentFeedIndex];
     this.sidebarDropDownCategory();
     this.sidebarDropDownFeed();
     this.sidebarDropDownCategorySetOnChange();
@@ -23,6 +27,10 @@ m.prototype.sidebarInit = function() {
 m.prototype.sidebarDropDownCategory = function() {
     'use strict';
     var content = '';
+    if (Object.keys(this.feeds).length === 1) {
+        $('#category-selector').style.display = 'none';
+        return;
+    }
     forEach(this.feeds, function(k) {
         content += '<option value="' + k + '">' + k + '</option>';
     });
@@ -41,6 +49,9 @@ m.prototype.sidebarDropDownFeed = function() {
 m.prototype.sidebarDropDownCategorySetOnChange = function() {
     'use strict';
     var self = this;
+    if (Object.keys(this.feeds).length === 1) {
+        return;
+    }
     $('#category-selector').addEventListener('change', function(evt) {
         try {
             localStorage.setItem('sidebar-selected-category', evt.target.value);
@@ -75,7 +86,12 @@ m.prototype.sidebarFeedCallback = function(response) {
         content = '';
     //console.log(entries);
     forEach(entries, function(k, v) {
-        content += '<li><a title="' + v.title + ' [' + (v.domain_name || 'self') + ']" target="_blank" href="' + (v.comments || v.link) + '">&#187; ' + v.title + '</a></li>';
+        content += '<li>' + v.extraContent.replace(/Comments/, '[C] ');
+        content += '<a title="' + v.title.replace(/"/g, '\'');
+        if (v.domain_name !== '') {
+            content += ' [' + v.domain_name + ']';
+        }
+        content += '" target="_blank" href="' + v.link + '">&#187; ' + v.title + '</a></li>';
     });
     $('#entries').innerHTML = content;
 };

@@ -57,6 +57,12 @@ section#sidebar ul.list-feeds {
     margin: 6px 0 6px 6px;
 }
 
+section#sidebar ul.list-feeds li select#category-selector {
+    width: 98%;
+    padding: 5px;
+    margin-bottom: 6px;
+}
+
 section#sidebar ul.list-feeds li a {
     color: #000000;
     font-weight: bold;

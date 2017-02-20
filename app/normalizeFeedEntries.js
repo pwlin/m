@@ -22,7 +22,7 @@ window.normalizeEntryLink = function(entry) {
 
 window.normalizeFeedEntries = function(feed, response) {
     'use strict';
-    var entries = response.query.results.rss ? response.query.results.rss.channel.item : response.query.results.feed.entry,
+    var entries,
         i,
         k,
         isMobileUser = isArray(navigator.userAgent.match(/Android|iPhone/i)),
@@ -35,6 +35,11 @@ window.normalizeFeedEntries = function(feed, response) {
         tmpDomainName = '',
         x,
         y;
+    if (typeof response.query === 'undefined' || response.query.count === 0) {
+        return [];
+    }
+    //console.log(response);
+    entries = response.query.results.rss ? response.query.results.rss.channel.item : response.query.results.feed.entry;
     //isMobileUser = true;
     //console.log(feed, response);
     for (i = 0, k = entries.length; i < k; i++) {
@@ -52,8 +57,23 @@ window.normalizeFeedEntries = function(feed, response) {
             entries[i].extraContent = entries[i].description.replace(/<a href/ig, '<a target="_blank" href');
             //console.log(entries[i].extraContent);
             if (isMobileUser === true) {
-                entries[i].extraContent = entries[i].extraContent.replace(/https:\/\/news\.ycombinator\.com\/item\?id=/, 'http://cheeaun.github.io/hackerweb/#/item/');
+                entries[i].extraContent = entries[i].extraContent.replace(/https:\/\/news\.ycombinator\.com\/item\?id=/, 'https://app.hackerwebapp.com/#/item/');
             }
+            entries[i].domain_name = entries[i].link.match(/:\/\/(.[^/]+)/)[1].replace(/^www\./, '');
+        }
+        break;
+
+    case 'TechMeme':
+        for (i = 0, k = entries.length; i < k; i++) {
+            entries[i].comments = entries[i].link;
+            entries[i].link = entries[i].description.match(/<A HREF="(.*)">/ig);
+            if (entries[i].link[2]) {
+                entries[i].link = entries[i].link[2];
+            } else {
+                entries[i].link = entries[i].link[1];
+            }
+            entries[i].link = entries[i].link.replace(/^<A HREF="|">$/ig, '');
+            entries[i].extraContent = '<a target="_blank" href="' + entries[i].comments + '">Comments</a>';
             entries[i].domain_name = entries[i].link.match(/:\/\/(.[^/]+)/)[1].replace(/^www\./, '');
         }
         break;
@@ -84,6 +104,7 @@ window.normalizeFeedEntries = function(feed, response) {
     case 'Google News':
         for (i = 0, k = entries.length; i < k; i++) {
             entries[i].link = (String(entries[i].link)).replace(/(.*)&url=/, '');
+            entries[i].domain_name = entries[i].link.match(/:\/\/(.[^/]+)/)[1].replace(/^www\./, '');
         }
         break;
 
@@ -92,6 +113,10 @@ window.normalizeFeedEntries = function(feed, response) {
     case '/r/PHP':
     case '/r/WebDev':
     case '/r/ShutupAndTakeMyMoney':
+    case '/r/Startup':
+    case '/r/Startups':
+    case '/r/StartupFeedback':
+    case '/r/RealProblemsSolvers':
         for (i = 0, k = entries.length; i < k; i++) {
             tmpContent = entries[i].content.content.match(/<a[^>]*>([\s\S]*?)<\/a>/ig);
             //console.log(tmpContent);
@@ -152,10 +177,13 @@ window.normalizeFeedEntries = function(feed, response) {
             'ibm.biz',
             'welcome.linode.com',
             'go.npm.me',
-            'frontenddeveloperjob.com'
+            'frontenddeveloperjob.com',
+            'frontendmasters.com',
+            'centralway.com'
         ];
         tmpRemovePartialDomains = [
-            'breezy.hr'
+            'breezy.hr',
+            'ads.'
         ];
 
         for (i = 0, k = entries.length; i < k; i++) {

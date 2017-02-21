@@ -75,6 +75,7 @@ window.normalizeFeedEntries = function(feed, response) {
             entries[i].link = entries[i].link.replace(/^<A HREF="|">$/ig, '');
             entries[i].extraContent = '<a target="_blank" href="' + entries[i].comments + '">Comments</a>';
             entries[i].domain_name = entries[i].link.match(/:\/\/(.[^/]+)/)[1].replace(/^www\./, '');
+            entries[i].title = entries[i].title.replace(/\((.*)\)$/i, '');
         }
         break;
 

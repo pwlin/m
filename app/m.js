@@ -12,7 +12,7 @@ window.m = function(params) {
     this.getFeed = function(url) {
         url = this.apiUrl.replace('|||FEED_URL|||', encodeURIComponent(url));
         url += '&callback=' + this.params.feedCallback;
-        //url += '&_maxage=1800';
+        //url += '&_maxage=900';
         //url += '&diagnostics=true&debug=true';
         url += '&_=' + new Date().valueOf();
         jsInclude(url);

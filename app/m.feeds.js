@@ -35,27 +35,15 @@ m.prototype.feeds = {
         },
 
         {
-            'feedName': '/r/Startup',
-            'feedUrl': 'https://www.reddit.com/r/startup/.rss',
-            'webUrl': 'https://www.reddit.com/r/startup'
-        },
-
-        {
             'feedName': '/r/Startups',
-            'feedUrl': 'https://www.reddit.com/r/startups/.rss',
+            'feedUrl': 'https://mywebdev.000webhostapp.com/reddit-rss/startups',
             'webUrl': 'https://www.reddit.com/r/startups'
         },
 
         {
             'feedName': '/r/StartupFeedback',
-            'feedUrl': 'https://www.reddit.com/r/startupfeedback/.rss',
+            'feedUrl': 'https://mywebdev.000webhostapp.com/reddit-rss/startupfeedback',
             'webUrl': 'https://www.reddit.com/r/StartupFeedback'
-        },
-
-        {
-            'feedName': '/r/RealProblemsSolvers',
-            'feedUrl': 'http://www.reddit.com/r/realproblemsolvers/.rss',
-            'webUrl': 'https://www.reddit.com/r/RealProblemSolvers/'
         }
 
     ],
@@ -101,8 +89,8 @@ m.prototype.feeds = {
 
         {
             'feedName': '/r/ShutupAndTakeMyMoney',
-            'feedUrl': 'http://www.reddit.com/r/shutupandtakemymoney/.rss',
-            'webUrl': 'http://www.reddit.com/r/shutupandtakemymoney'
+            'feedUrl': 'https://mywebdev.000webhostapp.com/reddit-rss/shutupandtakemymoney',
+            'webUrl': 'https://www.reddit.com/r/shutupandtakemymoney'
         }
 
     ],
@@ -111,20 +99,32 @@ m.prototype.feeds = {
 
         {
             'feedName': '/r/JavaScript',
-            'feedUrl': 'http://www.reddit.com/r/javascript/.rss',
-            'webUrl': 'http://www.reddit.com/r/javascript'
+            'feedUrl': 'https://mywebdev.000webhostapp.com/reddit-rss/javascript',
+            'webUrl': 'https://www.reddit.com/r/javascript'
         },
 
         {
             'feedName': '/r/WebDev',
-            'feedUrl': 'http://www.reddit.com/r/webdev/.rss',
-            'webUrl': 'http://www.reddit.com/r/webdev'
+            'feedUrl': 'https://mywebdev.000webhostapp.com/reddit-rss/webdev',
+            'webUrl': 'https://www.reddit.com/r/webdev'
         },
 
         {
             'feedName': '/r/PHP',
-            'feedUrl': 'http://www.reddit.com/r/php/.rss',
-            'webUrl': 'http://www.reddit.com/r/php'
+            'feedUrl': 'https://mywebdev.000webhostapp.com/reddit-rss/php',
+            'webUrl': 'https://www.reddit.com/r/php'
+        },
+
+        {
+            'feedName': '/r/CSS',
+            'feedUrl': 'https://mywebdev.000webhostapp.com/reddit-rss/css',
+            'webUrl': 'https://www.reddit.com/r/css'
+        },
+
+        {
+            'feedName': '/r/Node',
+            'feedUrl': 'https://mywebdev.000webhostapp.com/reddit-rss/node',
+            'webUrl': 'https://www.reddit.com/r/node'
         },
 
         {
@@ -155,6 +155,18 @@ m.prototype.feeds = {
     ],
 
     'Linux' : [
+
+        {
+            'feedName': '/r/Ubuntu',
+            'feedUrl': 'https://mywebdev.000webhostapp.com/reddit-rss/ubuntu',
+            'webUrl': 'https://www.reddit.com/r/ubuntu'
+        },
+
+        {
+            'feedName': '/r/Debian',
+            'feedUrl': 'https://mywebdev.000webhostapp.com/reddit-rss/debian',
+            'webUrl': 'https://www.reddit.com/r/debian'
+        },
 
         {
             'feedName': 'WebUpd8',

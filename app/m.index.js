@@ -81,11 +81,13 @@ m.prototype.indexDropDownCategory = function() {
     }
     content += '<li><select id="category-selector">';
     forEach(this.feeds, function(k) {
-        content += '<option ';
-        if (k === self.currentCateogry) {
-            content += ' selected="selected ';
+        if (self.feeds[k].length > 0) {
+            content += '<option ';
+            if (k === self.currentCateogry) {
+                content += ' selected="selected ';
+            }
+            content += ' value="' + k + '">' + k + '</option>';
         }
-        content += ' value="' + k + '">' + k + '</option>';
     });
     content += '</select></li>';
     return content;

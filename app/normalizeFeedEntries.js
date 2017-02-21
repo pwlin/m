@@ -112,11 +112,12 @@ window.normalizeFeedEntries = function(feed, response) {
     case '/r/CSS':
     case '/r/PHP':
     case '/r/WebDev':
+    case '/r/Node':
     case '/r/ShutupAndTakeMyMoney':
-    case '/r/Startup':
     case '/r/Startups':
-    case '/r/StartupFeedback':
-    case '/r/RealProblemsSolvers':
+    case '/r/Ubuntu':
+    case '/r/Debian':
+
         for (i = 0, k = entries.length; i < k; i++) {
             tmpContent = entries[i].content.content.match(/<a[^>]*>([\s\S]*?)<\/a>/ig);
             //console.log(tmpContent);

@@ -116,6 +116,7 @@ window.normalizeFeedEntries = function(feed, response) {
     case '/r/Node':
     case '/r/ShutupAndTakeMyMoney':
     case '/r/Startups':
+    case '/r/StartupFeedback':
     case '/r/Ubuntu':
     case '/r/Debian':
 

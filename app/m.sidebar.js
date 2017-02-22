@@ -86,7 +86,7 @@ m.prototype.sidebarFeedCallback = function(response) {
         content = '';
     //console.log(entries);
     if (entries.length === 0) {
-        content += '<li>Ouch, something went wrong. <a class="ouch" href="#" onclick="document.location.reload(true);return false;">Please try again</a>.</li>';
+        content += '<li class="ouch"><div>Ouch, something went wrong.</div><div><a href="#" onclick="document.location.reload(true);return false;">Please try again</a>.</div></li>';
     } else {
         forEach(entries, function(k, v) {
             content += '<li>' + v.extraContent.replace(/Comments/, '[C] ');

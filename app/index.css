@@ -6,7 +6,6 @@ header#top {
     background-color: #000000;
 }
 
-
 header#top a {
     text-decoration: none;
     color: #FFFFFF;
@@ -84,6 +83,7 @@ section#sidebar ul.list-feeds li a.selected {
     header#top a.feeds-link {
         display: inline-block;
     }
+
     section#sidebar ul.list-feeds {
         margin: 6px;
     }

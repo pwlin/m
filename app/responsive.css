@@ -2,33 +2,40 @@ body {
     width: 100%;
     *zoom: 1;
 }
+
 body:before,
 body:after {
     content: "";
     display: table;
 }
+
 body:after {
     clear: both;
 }
+
 #maincolumn {
     display: inline;
     float: left;
     width: 80%;
 }
+
 #sidebar {
     display: inline;
     float: left;
     width: 20%;
 }
+
 @media screen and (max-width: 720px) {
     #maincolumn,
     #sidebar {
         float: left;
         width: 100%;
     }
+
     #maincolumn {
         display: inline;
     }
+
     #sidebar {
         display: none;
     }

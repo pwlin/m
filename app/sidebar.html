@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-	    <meta charset="utf-8" />
-	    <link rel="shortcut icon" type="image/x-icon" href="./favicon-red.ico" />
-	    <link rel="stylesheet" type="text/css" href="./reset.css" />
-	    <link rel="stylesheet" type="text/css" href="./sidebar.css" />
-	    <script type="text/javascript" src="./funcs.js"></script>
-	    <script type="text/javascript" src="./normalizeFeedEntries.js"></script>
-	    <script type="text/javascript" src="./m.js"></script>
-	    <script type="text/javascript" src="./m.feeds.js"></script>
-	    <script type="text/javascript" src="./m.sidebar.js"></script>
-	    <title>MReader Sidebar</title>
-	</head>
-	<body>
-		<section class="dropdown-container">
-			<select id="category-selector"></select>
-	    	<select id="feed-selector"></select>
-	    	<a class="anchor-refresh" onclick="document.location.reload(true);" title="Refresh">&#x27f2;</a>
-		</section>
-	    <ul id="entries"></ul>
-		<script>
-	    	var MReader = new m({
-	    		'feedCallback': 'MReader.sidebarFeedCallback'
-	        });
-	        MReader.sidebarInit();
-	    </script>
-	</body>
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon-red.ico" />
+    <link rel="stylesheet" type="text/css" href="./reset.css" />
+    <link rel="stylesheet" type="text/css" href="./sidebar.css" />
+    <script type="text/javascript" src="./funcs.js"></script>
+    <script type="text/javascript" src="./normalizeFeedEntries.js"></script>
+    <script type="text/javascript" src="./m.js"></script>
+    <script type="text/javascript" src="./m.feeds.js"></script>
+    <script type="text/javascript" src="./m.sidebar.js"></script>
+    <title>MReader Sidebar</title>
+</head>
+
+<body>
+    <section class="dropdown-container">
+        <select id="category-selector"></select>
+        <select id="feed-selector"></select>
+        <section title="Refresh" class="refresh" onclick="document.location.reload(true);"></section>
+    </section>
+    <ul id="entries"></ul>
+    <script>
+        var MReader = new m({
+            'feedCallback': 'MReader.sidebarFeedCallback'
+        });
+        MReader.sidebarInit();
+    </script>
+</body>
+
 </html>

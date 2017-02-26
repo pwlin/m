@@ -215,7 +215,18 @@ m.prototype.feeds = {
 
     ],
 
-    'News' : [
+    'World News' : [
+        {
+            'feedName': 'The Intercept',
+            'feedUrl': 'https://theintercept.com/feed/?lang=en',
+            'webUrl': 'https://theintercept.com/'
+        },
+
+        {
+            'feedName': 'War Is Boring',
+            'feedUrl': 'https://warisboring.com/feed',
+            'webUrl': 'https://warisboring.com/'
+        },
 
         {
             'feedName': 'hubski',
@@ -241,12 +252,6 @@ m.prototype.feeds = {
             'feedName': 'AP News',
             'feedUrl': 'http://hosted.ap.org/lineups/TOPHEADS.rss?SITE=AP&SECTION=HOME',
             'webUrl': 'http://hosted.ap.org/dynamic/fronts/RAW?SITE=AP&SECTION=HOME'
-        },
-
-        {
-            'feedName': 'United Press',
-            'feedUrl': 'http://rss.upi.com/news/news.rss',
-            'webUrl': 'http://www.upi.com/'
         }
 
     ]

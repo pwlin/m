@@ -3,13 +3,7 @@ m
 
 A Very Simple Feed Reader With The Help Of [Yahoo's YQL API](https://developer.yahoo.com/yql/) 
 
-Demo
-====
-
-http://mreader.neocities.org/
-
-
-![Screenshot](http://i.imgur.com/WU5DKg9.png)
+Demo : http://mreader.neocities.org/
 
 Install
 =======
@@ -20,3 +14,13 @@ Install
 
 3- Open app/index.html in your browser.
 
+![Screenshot](http://i.imgur.com/2LMFdO0.png)
+
+Use As Sidebar
+==============
+
+You can also open `app/sidebar.html` in browsers which support sidebar for an easier access.
+
+![Screenshot](http://i.imgur.com/8KkmqG2.png)
+
+![Screenshot](http://i.imgur.com/HR5UkPt.png)

@@ -10,9 +10,9 @@ Install
 
 1- Clone this repository
 
-2- (Optional) Edit app/m.feeds.js and add your own feeds
+2- (Optional) Edit `app/m.feeds.js` and add your own feeds
 
-3- Open app/index.html in your browser.
+3- Open `app/index.html` in your browser.
 
 ![Screenshot](http://i.imgur.com/2LMFdO0.png)
 

@@ -197,12 +197,11 @@ window.normalizeFeedEntries = function(feed, response) {
             // @TODO: entries[i].description.match(/<a[^>]*>([^<]*)<\/a>/ig);
             entries[i].description = entries[i].description.replace(/<img[^>]*>/g, '');
             tmpContent.innerHTML = entries[i].description;
-            console.log(tmpContent.innerHTML);
+            //console.log(tmpContent.innerHTML);
             tmpAllAnchors = $('a[target="_blank"]', tmpContent);
             if (tmpAllAnchors.length === 0) {
                 tmpAllAnchors = $('a[href^="http"]', tmpContent);
             }
-            //console.log('tmpAllAnchors: -->', tmpAllAnchors);
 
             for (x = 0, y = tmpAllAnchors.length; x < y; x++) {
                 console.log(tmpAllAnchors[x].href);

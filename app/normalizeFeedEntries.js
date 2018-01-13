@@ -161,9 +161,8 @@ window.normalizeFeedEntries = function(feed, response) {
         tmpRemoveDomains = [
             document.location.host,
             'javascriptweekly.com',
-            'mobilewebweekly.co',
-            'html5weekly.com',
-            'frontendfocus.co',
+            'mobilewebweekly.com',
+            'frontendfoc.us',
             'nodeweekly.com',
             'webopsweekly.com',
             'manning.com',
@@ -182,7 +181,8 @@ window.normalizeFeedEntries = function(feed, response) {
             'go.npm.me',
             'frontenddeveloperjob.com',
             'frontendmasters.com',
-            'centralway.com'
+            'centralway.com',
+            'welcome.linode.com'
         ];
         tmpRemovePartialDomains = [
             'breezy.hr',
@@ -194,17 +194,25 @@ window.normalizeFeedEntries = function(feed, response) {
                 break;
             }
             tmpContent = document.createElement('div');
+            // @TODO: entries[i].description.match(/<a[^>]*>([^<]*)<\/a>/ig);
             entries[i].description = entries[i].description.replace(/<img[^>]*>/g, '');
             tmpContent.innerHTML = entries[i].description;
-            //console.log(tmpContent.innerHTML);
+            console.log(tmpContent.innerHTML);
             tmpAllAnchors = $('a[target="_blank"]', tmpContent);
+            if (tmpAllAnchors.length === 0) {
+                tmpAllAnchors = $('a[href^="http"]', tmpContent);
+            }
+            //console.log('tmpAllAnchors: -->', tmpAllAnchors);
+
             for (x = 0, y = tmpAllAnchors.length; x < y; x++) {
-                //console.log(tmpAllAnchors[x].href);
+                console.log(tmpAllAnchors[x].href);
                 if (!tmpAllAnchors[x].href.match(/^http/i)) {
+                    console.log('no http?');
                     continue;
                 }
                 tmpDomainName = tmpAllAnchors[x].href.match(/:\/\/(.[^/]+)/)[1].replace(/^www\./, '');
                 if (inArray(tmpRemoveDomains, tmpDomainName) || inArrayPartial(tmpRemovePartialDomains, tmpDomainName)) {
+                    console.log('remove domains??');
                     continue;
                 }
 

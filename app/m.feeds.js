@@ -187,28 +187,28 @@ m.prototype.feeds = {
 
         {
             'feedName': 'Mobile Web Weekly',
-            'feedUrl': 'http://mobilewebweekly.co/rss/20gb62f2',
-            'webUrl': 'http://mobilewebweekly.co/',
+            'feedUrl': 'https://mywebdev.000webhostapp.com/pcw/mobilewebweekly--com',
+            'webUrl': 'https://mobilewebweekly.com/',
             'favIcon': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABZ0RVh0Q3JlYXRpb24gVGltZQAxMi8xMy8xNQNMtUcAAAAhdEVYdFNvZnR3YXJlAE1hY3JvbWVkaWEgRmlyZXdvcmtzIDQuMOomJ3UAAAAdSURBVHicY/z/juE/AwWAiRLNowaMGjBqwGAyAAAdrQMMKNbmoAAAAABJRU5ErkJggg=='
         },
 
         {
-            'feedName': 'HTML5 Weekly',
-            'feedUrl': 'http://frontendfocus.co/rss/243an68p',
-            'webUrl': 'http://frontendfocus.co/',
+            'feedName': 'Frontend Focus',
+            'feedUrl': 'https://mywebdev.000webhostapp.com/pcw/frontendfoc--us',
+            'webUrl': 'https://frontendfoc.us/',
             'favIcon': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABZ0RVh0Q3JlYXRpb24gVGltZQAxMi8xMy8xNQNMtUcAAAAhdEVYdFNvZnR3YXJlAE1hY3JvbWVkaWEgRmlyZXdvcmtzIDQuMOomJ3UAAAAdSURBVHicY2TsOPOfgQLARInmUQNGDRg1YDAZAACzZgJ0M82jawAAAABJRU5ErkJggg=='
         },
 
         {
             'feedName': 'NodeJS Weekly',
-            'feedUrl': 'http://nodeweekly.com/rss/1ijdccap',
+            'feedUrl': 'https://mywebdev.000webhostapp.com/pcw/nodeweekly--com',
             'webUrl': 'http://nodeweekly.com/',
             'favIcon': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABZ0RVh0Q3JlYXRpb24gVGltZQAxMi8xMy8xNQNMtUcAAAAhdEVYdFNvZnR3YXJlAE1hY3JvbWVkaWEgRmlyZXdvcmtzIDQuMOomJ3UAAAAdSURBVHicYwzdrfSfgQLARInmUQNGDRg1YDAZAAAmegJRGLfWvQAAAABJRU5ErkJggg=='
         },
 
         {
             'feedName': 'WebOps Weekly',
-            'feedUrl': 'http://webopsweekly.com/rss/1ecjcl9j',
+            'feedUrl': 'https://mywebdev.000webhostapp.com/pcw/webopsweekly--com',
             'webUrl': 'http://webopsweekly.com/',
             'favIcon': 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABZ0RVh0Q3JlYXRpb24gVGltZQAxMi8xMy8xNQNMtUcAAAAhdEVYdFNvZnR3YXJlAE1hY3JvbWVkaWEgRmlyZXdvcmtzIDQuMOomJ3UAAAAdSURBVHicY2TN6vnPQAFgokTzqAGjBowaMJgMAABGrwIacAI2pAAAAABJRU5ErkJggg=='
         }

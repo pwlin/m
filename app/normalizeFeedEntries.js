@@ -56,9 +56,11 @@ window.normalizeFeedEntries = function(feed, response) {
         for (i = 0, k = entries.length; i < k; i++) {
             entries[i].extraContent = entries[i].description.replace(/<a href/ig, '<a target="_blank" href');
             //console.log(entries[i].extraContent);
+            /*
             if (isMobileUser === true) {
                 entries[i].extraContent = entries[i].extraContent.replace(/https:\/\/news\.ycombinator\.com\/item\?id=/, 'https://app.hackerwebapp.com/#/item/');
             }
+            */
             entries[i].domain_name = entries[i].link.match(/:\/\/(.[^/]+)/)[1].replace(/^www\./, '');
         }
         break;

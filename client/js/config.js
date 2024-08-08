@@ -32,7 +32,7 @@ class Config {
     constructor() {
         this.config = null;
         this.defaultConfig = {
-            'xml2json_endpoint': '/xml2json?url=__URL__&_t=__TS__',
+            'xml2json_endpoint': '/xml2json?url=__URL__&_t=__TS__&api_key=__API_KEY__',
             'favicon_endpoint': '/favicon?url=__URL__&api_key=__API_KEY__',
             'revredir_endpoint': '/revredir?url=__URL__&api_key=__API_KEY__'
         };

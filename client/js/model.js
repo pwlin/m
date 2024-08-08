@@ -38,13 +38,12 @@ class Model {
      * @returns {Promise<Array>} A promise that resolves to the normalized feed data.
      */
     async fetchFeed(feed) {
-        const apiKey = config.get('api_key');
-        const serviceUrl = `${config.get('api_url')}${config.get('xml2json_endpoint').replace('__URL__', encodeURIComponent(feed.feedUrl)).replace('__TS__', utils.ts())}`;
-        const response = await fetch(serviceUrl, {
+        const serviceUrl = `${config.get('api_url')}${config.get('xml2json_endpoint').replace('__URL__', encodeURIComponent(feed.feedUrl)).replace('__TS__', utils.ts()).replace('__API_KEY__', config.get('api_key'))}`;
+        const response = await fetch(serviceUrl/*, {
             headers: {
                 'Authorization': `Bearer ${apiKey}`
             }
-        });
+        }*/);
         const content = await response.json();
 
         // Normalize the general structure of the feed entries

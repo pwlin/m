@@ -3,7 +3,7 @@
     "main_color": "red",
     "second_color": "black",
     "api_key": "dev-api-key",
-    "api_url": "http://127.0.0.1:8080/index.php",
+    "api_url": "http://127.0.0.1:8081/index.php",
     "favicons_enabled": false,
     "redirlinks_enabled": false
 }

@@ -8,3 +8,4 @@ client/feeds.json
 client/Neo.toml
 package-lock.json
 server/cache
+app.yaml

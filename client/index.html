@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+The MIT License (MIT)
+
+Copyright (c) 2023 pwlin/MReader contributors - pwlin05@gmail.com
+
+https://github.com/pwlin/m/
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link crossorigin rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
+    <title>MReader</title>
+    <link crossorigin href="./css/fonts.css" rel="stylesheet" />
+    <link crossorigin href="./css/reset.css" rel="stylesheet" />
+    <link crossorigin href="./css/responsive.css" rel="stylesheet" />
+    <link crossorigin href="./css/index.css" rel="stylesheet" />
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; 
+        script-src 'self'; 
+        style-src 'self'; 
+        img-src 'self' data:  http://localhost:* http://127.0.0.1:*; 
+        connect-src 'self' wss: ws: http://localhost:* http://127.0.0.1:* https:; 
+        font-src 'self' data:;" />
+</head>
+
+<body>
+    <header id="top">
+        <a class="logo-container" href="./#/">
+            <span class="logo">M</span>
+            <span class="logo-text">Reader</span>
+        </a>
+        <a class="about-link" href="#/about">About</a>
+        <a class="feeds-link" href="#">Feeds</a>
+    </header>
+    <section id="sidebar">
+        <select id="categorySelect"></select>
+        <ul class="feedList" id="feedList"></ul>
+    </section>
+
+    <article id="mainContent">&nbsp;</article>
+
+    <script type="module" src="./js/controller.js"></script>
+
+</body>
+
+</html>

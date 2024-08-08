@@ -1,0 +1,73 @@
+{
+    "Technology": [
+        {
+            "feedName": "HN",
+            "feedUrl": "https://news.ycombinator.com/rss1",
+            "webUrl": "https://news.ycombinator.com/"
+        },
+        {
+            "feedName": "dot.LA",
+            "feedUrl": "https://dot.la/feeds/feed.rss",
+            "webUrl": "https://dot.la/"
+        },
+        {
+            "feedName": "TechMeme",
+            "feedUrl": "https://www.techmeme.com/feed.xml",
+            "webUrl": "https://www.techmeme.com/"
+        },
+        {
+            "feedName": "The Register",
+            "feedUrl": "https://www.theregister.com/headlines.atom",
+            "webUrl": "https://www.theregister.com/"
+        },
+        {
+            "feedName": "/r/Startups",
+            "feedUrl": "https://old.reddit.com/r/startups/.rss",
+            "webUrl": "https://old.reddit.com/r/startups",
+            "enabled": false
+        }
+    ],
+    "WebDev": [
+        {
+            "feedName": "/r/JavaScript",
+            "feedUrl": "https://old.reddit.com/r/javascript/.rss",
+            "webUrl": "https://old.reddit.com/r/javascript"
+        },
+        {
+            "feedName": "/r/WebDev",
+            "feedUrl": "https://old.reddit.com/r/webdev/.rss",
+            "webUrl": "https://old.reddit.com/r/webdev"
+        },
+        {
+            "feedName": "JavaScript Weekly",
+            "feedUrl": "https://cprss.s3.amazonaws.com/javascriptweekly.com.xml",
+            "webUrl": "https://javascriptweekly.com/",
+            "revRedir": true,
+            "enabled": false,
+            "feedFavIcon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAGFBMVEVHcEwDo/8Do/8Do/8Do/8Do/8Do/8Do//mGJagAAAACHRSTlMA/xYcvpXRj7YfqskAAAAuSURBVBiVY2BAB0xsLEiAjYmBmREFDB4BJlY4YGcDCaAADAEGRmY0AWZ0AQYGAMFmAT/o+p+wAAAAAElFTkSuQmCC"
+        }
+    ],
+    "YouTube Channels": [
+        {
+            "feedName": "Taki Udon",
+            "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCKF5151a6yAooOILrYTvfJg",
+            "webUrl": "https://www.youtube.com/channel/UCKF5151a6yAooOILrYTvfJg/"
+        },
+        {
+            "feedName": "Dave 2D",
+            "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCVYamHliCI9rw1tHR1xbkfw",
+            "webUrl": "https://www.youtube.com/channel/UCVYamHliCI9rw1tHR1xbkfw"
+        },
+        {
+            "feedName": "ETA Prime",
+            "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UC_0CVCfC_3iuHqmyClu59Uw",
+            "webUrl": "https://www.youtube.com/channel/UC_0CVCfC_3iuHqmyClu59Uw/videos",
+            "enabled": false
+        },
+        {
+            "feedName": "MobileTechReview",
+            "feedUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCW6J17hZ_Vgr6cQgd_kHt5A",
+            "webUrl": "https://www.youtube.com/channel/UCW6J17hZ_Vgr6cQgd_kHt5A/videos"
+        }
+    ]
+}

@@ -2,3 +2,9 @@
 .project
 .DS_Store
 node_modules
+dist
+client/config.json
+client/feeds.json
+client/Neo.toml
+package-lock.json
+server/cache

@@ -2,10 +2,10 @@
     "name": "mreader",
     "version": "0.0.2",
     "scripts": {
-        "dev-client": "node node_modules/vite/bin/vite.js --clearScreen false",
-        "build-client": "node node_modules/vite/bin/vite.js build",
-        "preview-client": "node node_modules/vite/bin/vite.js preview",
-        "dev-server": "php -S localhost:8081 -t ./server"
+        "dev:client": "node node_modules/vite/bin/vite.js --clearScreen false",
+        "build:client": "node node_modules/vite/bin/vite.js build",
+        "preview:client": "node node_modules/vite/bin/vite.js preview",
+        "dev:server": "php -S localhost:8081 -t ./server"
     },
     "devDependencies": {
         "vite": "^5.3.4",

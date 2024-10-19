@@ -5,7 +5,9 @@
         "dev:client": "node node_modules/vite/bin/vite.js --clearScreen false",
         "build:client": "node node_modules/vite/bin/vite.js build",
         "preview:client": "node node_modules/vite/bin/vite.js preview",
-        "dev:server": "php -S localhost:8081 -t ./server"
+        "dev:server": "php -S localhost:8081 -t ./server",
+        "deploy:server": "wasmer deploy",
+        "deploy:server2": "cd ../salad-api && make build && mv salad-api.php ../m/server/salad-api.php && cd ../m && wasmer deploy"
     },
     "devDependencies": {
         "vite": "^5.3.4",

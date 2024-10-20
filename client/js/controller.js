@@ -25,11 +25,11 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 /**
  * Controller class to handle user interactions for the MReader application.
  */
-import {config} from './config.js';
-import {feeds} from './feeds.js';
-import {model} from './model.js';
-import {router} from './router.js';
-import {view} from './view.js';
+import { config } from './config.js';
+import { feeds } from './feeds.js';
+import { model } from './model.js';
+import { router } from './router.js';
+import { view } from './view.js';
 
 class Controller {
     /**
@@ -71,6 +71,7 @@ class Controller {
      * @returns {void}
      */
     handleHomeRoute() {
+        this.initialSidebarSet = false;
         const categories = Object.keys(feeds.getFeeds());
         const feed = feeds.getFeeds()[categories[0]][0];
         window.location.hash = `#/feeds/${feed.feedSlug}`; // Redirect to the first feed

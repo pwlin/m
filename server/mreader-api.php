@@ -197,6 +197,60 @@ namespace MReader\Controllers {
         }
 
         /**
+         * Fetches the headers from a given URL using cURL.
+         *
+         * This function initializes a cURL session, sets the necessary options
+         * to retrieve only the headers, and returns them as an associative array.
+         *
+         * @param string $url The URL from which to fetch the headers.
+         * @return array|string An associative array of headers if successful, 
+         *                     or a string containing an error message if an error occurs.
+         */
+        public static function getHeadersCurl($url)
+        {
+            // Initialize a cURL session
+            $ch = curl_init($url);
+
+            // Set cURL options
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); // Return the transfer as a string
+            curl_setopt($ch, CURLOPT_HEADER, true); // Include the header in the output
+            curl_setopt($ch, CURLOPT_NOBODY, true); // Exclude the body from the output
+            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); // Follow redirects
+            // curl.cainfo = "/path/to/cacert.pem"
+            //curl_setopt($ch, CURLOPT_CAINFO, realpath('./cacert.pem'));
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+
+            // Execute the cURL session
+            $response = curl_exec($ch);
+
+            // Check for errors
+            if (curl_errno($ch)) {
+                // Handle error (optional)
+                $error_msg = curl_error($ch);
+                curl_close($ch);
+                return "cURL Error: $error_msg";
+            }
+
+            // Get the headers
+            $headers = [];
+            $header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
+            $header_content = substr($response, 0, $header_size);
+
+            // Split headers into an array
+            foreach (explode("\r\n", $header_content) as $line) {
+                if (strpos($line, ':') !== false) {
+                    list($key, $value) = explode(': ', $line, 2);
+                    $headers[$key] = $value;
+                }
+            }
+
+            // Close the cURL session
+            curl_close($ch);
+
+            return $headers;
+        }
+
+        /**
          * Main entry point for the RevRedir controller.
          *
          * @param object $salad The main application object.
@@ -244,7 +298,8 @@ namespace MReader\Controllers {
                         $finalUrl = self::getGoogleNewsLink($salad, $url);
                     } else {
                         // Fetch headers to find the final URL
-                        $headers = @get_headers($url, 1);
+                        //$headers = @get_headers($url, 1);
+                        $headers = self::getHeadersCurl($url);
                         if (is_array($headers['Location'])) {
                             $finalUrl = end($headers['Location']); // Get the last location if multiple
                         } else {

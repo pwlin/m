@@ -2,12 +2,12 @@
     "name": "mreader",
     "version": "0.0.2",
     "scripts": {
-        "dev:client": "node node_modules/vite/bin/vite.js --clearScreen false",
-        "build:client": "node node_modules/vite/bin/vite.js build",
-        "preview:client": "node node_modules/vite/bin/vite.js preview",
-        "dev:server": "php -S localhost:8081 -t ./server",
-        "deploy:server": "wasmer deploy",
-        "deploy:server2": "cd ../salad-api && make build && mv salad-api.php ../m/server/salad-api.php && cd ../m && wasmer deploy"
+        "client:dev": "node node_modules/vite/bin/vite.js --clearScreen false",
+        "client:build": "node node_modules/vite/bin/vite.js build",
+        "client:preview": "node node_modules/vite/bin/vite.js preview",
+        "server:dev": "php -S localhost:8081 -t ./server",
+        "server:build": "cd ../salad-api && make build && mv salad-api.php ../m/server/salad-api.php && cd ../m",
+        "server:deploy": "wasmer deploy"
     },
     "devDependencies": {
         "vite": "^5.3.4",

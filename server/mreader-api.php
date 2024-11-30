@@ -300,11 +300,14 @@ namespace MReader\Controllers {
                         // Fetch headers to find the final URL
                         //$headers = @get_headers($url, 1);
                         $headers = self::getHeadersCurl($url);
-                        if (is_array($headers['Location'])) {
-                            $finalUrl = end($headers['Location']); // Get the last location if multiple
-                        } else {
-                            $finalUrl = $headers['Location']; // Get the single location
+                        if (!empty($headers['Location'])) {
+                            if (is_array(@$headers['Location'])) {
+                                $finalUrl = end($headers['Location']); // Get the last location if multiple
+                            } else {
+                                $finalUrl = $headers['Location']; // Get the single location
+                            }
                         }
+
                         // Check if the final URL is relative
                         if (strpos($finalUrl, '/') === 0) {
                             if (is_array($headers['Location'])) {
